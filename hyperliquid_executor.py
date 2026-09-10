@@ -636,6 +636,16 @@ def _send_email(results: list[dict], status_summary: str):
     print(f"Email sent to {recipient_list}")
 
 
+def _tg_escape(text) -> str:
+    """Escape Telegram Markdown (v1) control characters in dynamic text.
+    Action names like open_long contain underscores, which otherwise make
+    Telegram reject the whole message with a 400."""
+    out = str(text)
+    for ch in ("\\", "_", "*", "`", "["):
+        out = out.replace(ch, "\\" + ch)
+    return out
+
+
 def _send_telegram(results: list[dict], status_summary: str):
     token = os.environ.get("TELEGRAM_BOT_TOKEN")
     chat_ids_raw = os.environ.get("TELEGRAM_CHAT_ID")
@@ -644,26 +654,32 @@ def _send_telegram(results: list[dict], status_summary: str):
 
     chat_ids = [c.strip() for c in chat_ids_raw.split(",") if c.strip()]
 
-    lines = ["*Crypto Y'all Trade Execution*", "", f"Status: {status_summary}", ""]
+    lines = ["*Crypto Y'all Trade Execution*", "", f"Status: {_tg_escape(status_summary)}", ""]
     for r in results:
         status = r.get("status", "?").upper()
-        lines.append(f"*{r['ticker']}* — {r['action']} [{status}]")
+        lines.append(f"*{_tg_escape(r['ticker'])}* — {_tg_escape(r['action'])} [{_tg_escape(status)}]")
         if r.get("status") == "filled":
             lines.append(f"  Size: {r.get('fill_size', 0):.6g} @ ${r.get('fill_price', 0):,.2f}")
         elif r.get("error"):
-            lines.append(f"  Error: {r['error']}")
-        lines.append(f"  Reason: {r.get('reason', '')}")
+            lines.append(f"  Error: {_tg_escape(r['error'])}")
+        lines.append(f"  Reason: {_tg_escape(r.get('reason', ''))}")
+        if r.get("stop", {}).get("status") == "placed":
+            lines.append(f"  Stop: {r['stop']['trigger_px']}")
         lines.append("")
 
     lines.append(f"_{dt.datetime.utcnow().strftime('%Y-%m-%d %H:%M UTC')}_")
     text = "\n".join(lines)
 
     for chat_id in chat_ids:
-        requests.post(
+        resp = requests.post(
             f"https://api.telegram.org/bot{token}/sendMessage",
             json={"chat_id": chat_id, "text": text, "parse_mode": "Markdown"},
             timeout=15,
         )
+        if resp.status_code == 200:
+            print(f"Telegram sent to chat {chat_id}")
+        else:
+            print(f"Telegram send failed ({resp.status_code}): {resp.text[:200]}")
 
 
 # ── Main ────────────────────────────────────────────────────────────────────
