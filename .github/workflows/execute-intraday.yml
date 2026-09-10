@@ -23,7 +23,9 @@ jobs:
         run: python intraday_executor.py
         env:
           HL_PRIVATE_KEY: ${{ secrets.HL_PRIVATE_KEY }}
-          HL_ACCOUNT_ADDRESS: ${{ secrets.HL_ACCOUNT_ADDRESS }}
+          # Optional per-bot Hyperliquid sub-account. Falls back to the shared
+          # main address when the INTRADAY_ACCOUNT_ADDRESS secret is not set.
+          HL_ACCOUNT_ADDRESS: ${{ secrets.INTRADAY_ACCOUNT_ADDRESS || secrets.HL_ACCOUNT_ADDRESS }}
           HL_TESTNET: ${{ vars.HL_TESTNET }}
           INTRADAY_CAPITAL: ${{ vars.INTRADAY_CAPITAL }}
           INTRADAY_DD_PCT: ${{ vars.INTRADAY_DD_PCT }}

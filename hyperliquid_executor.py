@@ -24,6 +24,7 @@ import sys
 import datetime as dt
 from decimal import Decimal, ROUND_DOWN
 
+import numpy as np
 import requests
 from eth_account import Account
 
@@ -192,6 +193,8 @@ def compute_all_signals() -> dict:
                 "bull_conf": bull_conf,
                 "bear_conf": bear_conf,
                 "leverage": float(sig["Leverage"].iloc[-1]) if "Leverage" in sig.columns else 1.0,
+                "atr": float(df["ATR"].iloc[-1]) if "ATR" in df.columns and not np.isnan(df["ATR"].iloc[-1]) else 0.0,
+                "atr_mult": float(profile["atr_mult"]),
             }
         except Exception as e:
             print(f"Error computing signal for {ticker}: {e}")
@@ -202,14 +205,20 @@ def compute_all_signals() -> dict:
 
 # ── Trade Decisions ─────────────────────────────────────────────────────────
 
-def decide_trades(signals: dict, open_positions: dict, max_positions: int) -> list[dict]:
+def decide_trades(signals: dict, open_positions: dict, max_positions: int,
+                  cooldown: set | None = None) -> list[dict]:
     """
     Reconcile signals vs current positions and return list of trade intents.
 
     Each intent: {ticker, hl_coin, action, side, reason}
     action: "open_long" | "open_short" | "close"
+
+    cooldown: coins whose position disappeared from the exchange (e.g. the
+    resting stop order fired). For these, "sync to hold_*" re-entries are
+    skipped until the strategy emits a fresh buy / enter_short.
     """
     trades = []
+    cooldown = cooldown or set()
 
     # Step 1: Determine which current positions need to be closed
     for ticker, info in signals.items():
@@ -273,6 +282,8 @@ def decide_trades(signals: dict, open_positions: dict, max_positions: int) -> li
 
         # Open on fresh entry (buy/enter_short) OR sync when strategy
         # says we should be holding long/short but we have no position.
+        if action_key in ("hold_long", "hold_short") and hl_coin in cooldown:
+            continue  # stopped out on exchange; wait for a fresh entry signal
         if action_key in ("buy", "hold_long"):
             reason = "BUY signal" if action_key == "buy" else "Sync to hold_long (strategy already in position)"
             open_candidates.append({
@@ -316,6 +327,140 @@ def get_size_decimals(info, coin: str) -> int:
         if universe["name"] == coin:
             return int(universe["szDecimals"])
     return 3  # safe default
+
+
+def round_price(px: float, sz_decimals: int = 3) -> float:
+    """Round a perp price to Hyperliquid's tick rules: 5 significant figures
+    and at most (6 - szDecimals) decimal places."""
+    max_decimals = max(0, 6 - sz_decimals)
+    return round(float(f"{px:.5g}"), max_decimals)
+
+
+# ── Exchange-side stop-loss orders ───────────────────────────────────────────
+# The strategies evaluate their ATR stops only when a run happens (every 30m,
+# 1h, or daily). A reduce-only trigger order resting on the exchange protects
+# the position between runs. The bot's own stop logic still runs as before;
+# the exchange order is a backstop, not a replacement.
+
+STOP_SLIPPAGE = 0.05  # limit bound for the triggered market order
+
+
+def cancel_coin_stops(info, exchange, address: str, coin: str) -> int:
+    """Cancel every resting reduce-only trigger order this account has on *coin*.
+    Returns the number of orders cancelled."""
+    cancelled = 0
+    try:
+        orders = info.frontend_open_orders(address)
+    except Exception as e:
+        print(f"Warning: could not list open orders for {coin}: {e}")
+        return 0
+    for o in orders:
+        if o.get("coin") != coin:
+            continue
+        if not (o.get("isTrigger") or o.get("reduceOnly")):
+            continue
+        try:
+            exchange.cancel(coin, int(o["oid"]))
+            cancelled += 1
+        except Exception as e:
+            print(f"Warning: could not cancel order {o.get('oid')} on {coin}: {e}")
+    return cancelled
+
+
+def place_stop_order(info, exchange, address: str, coin: str, stop_px: float) -> dict:
+    """Replace any existing stop on *coin* with a reduce-only stop-market order
+    covering the full current position at *stop_px*.
+
+    Returns {"status": "placed"|"skipped"|"error", ...}.
+    """
+    if not stop_px or stop_px <= 0:
+        return {"status": "skipped", "reason": "no stop price"}
+
+    positions = get_open_positions(info, address)
+    pos = positions.get(coin)
+    if not pos:
+        return {"status": "skipped", "reason": "no open position"}
+
+    size = abs(pos["size"])
+    is_long = pos["size"] > 0
+    sz_decimals = get_size_decimals(info, coin)
+    trigger_px = round_price(stop_px, sz_decimals)
+    # Triggered market order: limit price is the worst fill we accept
+    limit_px = round_price(
+        trigger_px * (1 - STOP_SLIPPAGE) if is_long else trigger_px * (1 + STOP_SLIPPAGE),
+        sz_decimals,
+    )
+
+    cancel_coin_stops(info, exchange, address, coin)
+
+    order_type = {"trigger": {"triggerPx": trigger_px, "isMarket": True, "tpsl": "sl"}}
+    try:
+        resp = exchange.order(
+            coin, not is_long, size, limit_px, order_type, reduce_only=True,
+        )
+    except Exception as e:
+        return {"status": "error", "error": str(e)}
+
+    if resp.get("status") == "ok":
+        statuses = resp["response"]["data"]["statuses"]
+        for st in statuses:
+            if "error" in st:
+                return {"status": "error", "error": st["error"], "trigger_px": trigger_px}
+        return {"status": "placed", "trigger_px": trigger_px, "size": size}
+    return {"status": "error", "error": str(resp), "trigger_px": trigger_px}
+
+
+def stop_price_for(side: str, fill_px: float, atr: float, atr_mult: float) -> float:
+    """Initial stop for a fresh entry: fill ± atr_mult × ATR."""
+    if not atr or atr <= 0 or not fill_px:
+        return 0.0
+    return fill_px - atr_mult * atr if side == "long" else fill_px + atr_mult * atr
+
+
+# ── Close-only mode ──────────────────────────────────────────────────────────
+# When a bot is paused (kill switch OFF) or halted by its drawdown limit, it
+# must still manage the exits of positions it already holds. Otherwise a pause
+# turns into "abandon every open trade with no stop". Only new entries and
+# pyramid adds are suppressed. Set the kill switch to HALT for a hard stop
+# that does nothing at all.
+
+def kill_switch_mode(var_name: str) -> str:
+    """Return "on", "close_only", or "halt" for the given kill switch variable."""
+    val = os.environ.get(var_name, "ON").strip().upper()
+    if val == "HALT":
+        return "halt"
+    if val == "OFF":
+        return "close_only"
+    return "on"
+
+
+def closes_only(trades: list[dict]) -> list[dict]:
+    return [t for t in trades if t["action"] == "close"]
+
+
+# ── Failure alerts ───────────────────────────────────────────────────────────
+
+def notify_failure(bot_name: str, exc: BaseException):
+    """Best-effort email + Telegram when a run crashes. Never raises."""
+    summary = f"{bot_name} RUN FAILED: {type(exc).__name__}: {exc}"
+    print(summary)
+    for fn in (_send_email, _send_telegram):
+        try:
+            fn([], summary)
+        except Exception as e:
+            print(f"Failure alert via {fn.__name__} failed: {e}")
+
+
+def run_guarded(bot_name: str, main_fn):
+    """Run *main_fn*; on an unexpected exception send an alert, then re-raise
+    so the GitHub Actions run still shows red."""
+    try:
+        main_fn()
+    except SystemExit:
+        raise
+    except BaseException as exc:
+        notify_failure(bot_name, exc)
+        raise
 
 
 def execute_trade(info, exchange, trade: dict, capital: float, leverage: float) -> dict:
@@ -377,11 +522,6 @@ def _parse_response(trade: dict, resp: dict, info, coin: str) -> dict:
 
 
 # ── Guardrails ──────────────────────────────────────────────────────────────
-
-def check_kill_switch() -> bool:
-    """Return True if trading should halt."""
-    return os.environ.get("KILL_SWITCH", "ON").upper() == "OFF"
-
 
 def check_daily_drawdown(state: dict, current_equity: float, threshold_pct: float) -> tuple[bool, dict]:
     """
@@ -512,11 +652,14 @@ def _send_telegram(results: list[dict], status_summary: str):
 def main():
     print(f"Trade executor started at {dt.datetime.utcnow().isoformat()}Z")
 
-    # Kill switch check
-    if check_kill_switch():
-        print("KILL_SWITCH is OFF — halting all trading")
-        send_execution_notifications([], "KILL SWITCH ACTIVE — no trades executed")
+    # Kill switch: OFF = manage exits only, HALT = do nothing
+    mode = kill_switch_mode("KILL_SWITCH")
+    if mode == "halt":
+        print("KILL_SWITCH is HALT — doing nothing")
         sys.exit(0)
+    close_only = mode == "close_only"
+    if close_only:
+        print("KILL_SWITCH is OFF — close-only mode (no new entries)")
 
     try:
         info, exchange, address = get_client()
@@ -533,17 +676,16 @@ def main():
     state.update(state_update)
 
     if halted:
-        msg = f"Daily drawdown triggered — halting today. {state_update.get('halt_reason')}"
+        msg = f"Daily drawdown triggered — close-only for the rest of today. {state_update.get('halt_reason')}"
         print(msg)
         send_execution_notifications([], msg)
-        save_trading_state(state)
-        sys.exit(0)
+        close_only = True
 
-    # Check if already halted today
+    # Already halted today → keep managing exits, no new entries
     today = dt.date.today().isoformat()
     if state.get("halted_today") == today:
-        print(f"Already halted today: {state.get('halt_reason')}")
-        sys.exit(0)
+        print(f"Already halted today: {state.get('halt_reason')} — close-only mode")
+        close_only = True
 
     # Compute signals and decide trades
     signals = compute_all_signals()
@@ -566,14 +708,26 @@ def main():
     # (e.g., another strategy or manual action closed them). This keeps state
     # consistent with the actual Hyperliquid account.
     stale_owned = owned_coins - set(open_positions.keys())
+    cooldown = set(state.get("cooldown", []))
     if stale_owned:
         print(f"Dropping stale owned coins (no position on exchange): {stale_owned}")
         owned_coins -= stale_owned
+        cooldown |= stale_owned
+        for coin in stale_owned:
+            cancel_coin_stops(info, exchange, address, coin)
+    # A coin leaves cooldown once the strategy is flat or fires a fresh entry
+    for ticker, s in signals.items():
+        coin = HL_TICKER_MAP[ticker]
+        if coin in cooldown and s["action"] not in ("hold_long", "hold_short"):
+            cooldown.discard(coin)
 
     managed_positions = {c: p for c, p in open_positions.items() if c in owned_coins}
 
-    trades = decide_trades(signals, managed_positions, max_positions)
-    print(f"Decided on {len(trades)} trade(s) (own {len(owned_coins)} position(s))")
+    trades = decide_trades(signals, managed_positions, max_positions, cooldown)
+    if close_only:
+        trades = closes_only(trades)
+    print(f"Decided on {len(trades)} trade(s) (own {len(owned_coins)} position(s))"
+          + (" [close-only]" if close_only else ""))
 
     results = []
     for trade in trades:
@@ -589,8 +743,17 @@ def main():
             coin = result["hl_coin"]
             if result["action"] == "close":
                 owned_coins.discard(coin)
+                cancel_coin_stops(info, exchange, address, coin)
             else:
                 owned_coins.add(coin)
+                cooldown.discard(coin)
+                stop_px = stop_price_for(
+                    trade["side"], result.get("fill_price", 0.0),
+                    sig_info.get("atr", 0.0), sig_info.get("atr_mult", 3.0),
+                )
+                stop = place_stop_order(info, exchange, address, coin, stop_px)
+                result["stop"] = stop
+                print(f"    stop order: {stop}")
 
     # Append to trade history
     history = state.get("history", [])
@@ -603,6 +766,7 @@ def main():
     state["last_equity"] = equity
     state["last_run"] = dt.datetime.utcnow().isoformat() + "Z"
     state["owned_coins"] = sorted(owned_coins)
+    state["cooldown"] = sorted(cooldown)
     # Show only our positions on the dashboard
     latest_positions = get_open_positions(info, address)
     state["open_positions"] = {c: p for c, p in latest_positions.items() if c in owned_coins}
@@ -615,4 +779,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    run_guarded("Daily bot", main)

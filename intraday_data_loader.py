@@ -12,6 +12,7 @@ import requests
 
 
 HL_CANDLE_URL = "https://api.hyperliquid.xyz/info"
+WEEK_MS = 7 * 24 * 3600 * 1000
 
 # Map yfinance-style tickers → Hyperliquid symbols
 HL_SYMBOL_MAP = {
@@ -45,6 +46,13 @@ def fetch_candles(
     coin = HL_SYMBOL_MAP.get(ticker, ticker)
     end_ms = int(time.time() * 1000)
     start_ms = end_ms - lookback_hours * 3600 * 1000
+    # Snap the window start to a fixed weekly boundary (Thursday 00:00 UTC,
+    # the Unix epoch weekday). The strategies replay a simulated position
+    # from the first bar, so a start that drifts every run can flip the
+    # final position with no real signal change. Anchoring makes two runs
+    # in the same week see the same bars. Window length varies between
+    # lookback_hours and lookback_hours + 168h as a result.
+    start_ms = (start_ms // WEEK_MS) * WEEK_MS
 
     body = {
         "type": "candleSnapshot",

@@ -21,10 +21,11 @@ import os
 import sys
 import datetime as dt
 
+import numpy as np
 import requests
 
 from intraday_data_loader import fetch_all_intraday, HL_SYMBOL_MAP
-from intraday_strategy import generate_intraday_signals, classify_intraday_signal
+from intraday_strategy import generate_intraday_signals, classify_intraday_signal, ATR_STOP_MULT
 from hyperliquid_executor import (
     ASSETS,
     get_client,
@@ -36,6 +37,12 @@ from hyperliquid_executor import (
     _parse_response,
     _send_email,
     _send_telegram,
+    kill_switch_mode,
+    closes_only,
+    cancel_coin_stops,
+    place_stop_order,
+    stop_price_for,
+    run_guarded,
 )
 from backtester import get_asset_profile
 
@@ -101,12 +108,15 @@ def compute_intraday_signals() -> dict:
             action = classify_intraday_signal(last, prev)
             price = float(df["Close"].iloc[-1])
             osc = float(sig["TwoPole_Osc"].iloc[-1]) if "TwoPole_Osc" in sig.columns else 0.0
+            atr_last = sig["ATR"].iloc[-1] if "ATR" in sig.columns else np.nan
+            atr = float(atr_last) if not np.isnan(atr_last) else 0.0
 
             current[ticker] = {
                 "signal": last,
                 "action": action,
                 "price": price,
                 "osc": osc,
+                "atr": atr,
             }
         except Exception as e:
             print(f"Error on {ticker}: {e}")
@@ -116,9 +126,15 @@ def compute_intraday_signals() -> dict:
 
 # ── Trade decisions ─────────────────────────────────────────────────────────
 
-def decide_trades(signals: dict, open_positions: dict, max_positions: int) -> list[dict]:
-    """Decide trades given new signals vs current HL positions."""
+def decide_trades(signals: dict, open_positions: dict, max_positions: int,
+                  cooldown: set | None = None) -> list[dict]:
+    """Decide trades given new signals vs current HL positions.
+
+    cooldown: coins whose position vanished from the exchange (e.g. the
+    resting stop fired). Skip "sync to hold" re-entries for them until the
+    strategy emits a fresh buy / enter_short."""
     trades = []
+    cooldown = cooldown or set()
 
     # Close out positions that should exit
     for ticker, info in signals.items():
@@ -154,6 +170,8 @@ def decide_trades(signals: dict, open_positions: dict, max_positions: int) -> li
         action = info["action"]
         # Open on fresh entry (buy/enter_short) OR sync when strategy
         # says we should be holding but we have no position.
+        if action in ("hold_long", "hold_short") and hl_coin in cooldown:
+            continue  # stopped out on exchange; wait for a fresh entry signal
         if action in ("buy", "hold_long"):
             reason = "buy signal" if action == "buy" else "sync to hold_long"
             candidates.append({
@@ -202,10 +220,6 @@ def execute_trade(info, exchange, trade: dict, capital: float, leverage: float) 
 
 # ── Guardrails ──────────────────────────────────────────────────────────────
 
-def kill_switch_off() -> bool:
-    return os.environ.get("INTRADAY_KILL_SWITCH", "ON").upper() == "OFF"
-
-
 def check_daily_drawdown(state: dict, equity: float, threshold: float) -> tuple[bool, dict]:
     today = dt.date.today().isoformat()
     key = f"day_start_{today}"
@@ -227,9 +241,14 @@ def check_daily_drawdown(state: dict, equity: float, threshold: float) -> tuple[
 def main():
     print(f"Intraday executor started at {dt.datetime.now(dt.UTC).isoformat()}")
 
-    if kill_switch_off():
-        print("Intraday KILL_SWITCH is OFF — halting")
+    # Kill switch: OFF = manage exits only, HALT = do nothing
+    mode = kill_switch_mode("INTRADAY_KILL_SWITCH")
+    if mode == "halt":
+        print("INTRADAY_KILL_SWITCH is HALT — doing nothing")
         sys.exit(0)
+    close_only = mode == "close_only"
+    if close_only:
+        print("INTRADAY_KILL_SWITCH is OFF — close-only mode (no new entries)")
 
     try:
         info, exchange, address = get_client()
@@ -245,16 +264,15 @@ def main():
     state.update(state_update)
 
     if halted:
-        msg = f"Intraday halted: {state_update.get('halt_reason')}"
+        msg = f"Intraday halted: {state_update.get('halt_reason')} — close-only for the rest of today"
         print(msg)
         _send_email([], msg)
-        save_state(state)
-        sys.exit(0)
+        close_only = True
 
     today = dt.date.today().isoformat()
     if state.get("halted_today") == today:
-        print(f"Already halted today: {state.get('halt_reason')}")
-        sys.exit(0)
+        print(f"Already halted today: {state.get('halt_reason')} — close-only mode")
+        close_only = True
 
     signals = compute_intraday_signals()
     open_positions = get_open_positions(info, address)
@@ -273,14 +291,26 @@ def main():
 
     # Reconcile: drop owned coins that no longer have a position on the exchange
     stale_owned = owned_coins - set(open_positions.keys())
+    cooldown = set(state.get("cooldown", []))
     if stale_owned:
         print(f"Dropping stale owned coins (no position on exchange): {stale_owned}")
         owned_coins -= stale_owned
+        cooldown |= stale_owned
+        for coin in stale_owned:
+            cancel_coin_stops(info, exchange, address, coin)
+    # A coin leaves cooldown once the strategy is flat or fires a fresh entry
+    for ticker, sig in signals.items():
+        coin = HL_SYMBOL_MAP[ticker]
+        if coin in cooldown and sig["action"] not in ("hold_long", "hold_short"):
+            cooldown.discard(coin)
 
     managed_positions = {c: p for c, p in open_positions.items() if c in owned_coins}
 
-    trades = decide_trades(signals, managed_positions, max_positions)
-    print(f"Decided on {len(trades)} intraday trade(s) (own {len(owned_coins)} position(s))")
+    trades = decide_trades(signals, managed_positions, max_positions, cooldown)
+    if close_only:
+        trades = closes_only(trades)
+    print(f"Decided on {len(trades)} intraday trade(s) (own {len(owned_coins)} position(s))"
+          + (" [close-only]" if close_only else ""))
 
     results = []
     for trade in trades:
@@ -293,8 +323,17 @@ def main():
             coin = result["hl_coin"]
             if result["action"] == "close":
                 owned_coins.discard(coin)
+                cancel_coin_stops(info, exchange, address, coin)
             else:
                 owned_coins.add(coin)
+                cooldown.discard(coin)
+                stop_px = stop_price_for(
+                    trade["side"], result.get("fill_price", 0.0),
+                    signals.get(trade["ticker"], {}).get("atr", 0.0), ATR_STOP_MULT,
+                )
+                stop = place_stop_order(info, exchange, address, coin, stop_px)
+                result["stop"] = stop
+                print(f"    stop order: {stop}")
 
     history = state.get("history", [])
     for r in results:
@@ -306,6 +345,7 @@ def main():
     state["last_equity"] = equity
     state["last_run"] = dt.datetime.now(dt.UTC).isoformat()
     state["owned_coins"] = sorted(owned_coins)
+    state["cooldown"] = sorted(cooldown)
     latest = get_open_positions(info, address)
     state["open_positions"] = {c: p for c, p in latest.items() if c in owned_coins}
     state["last_signals"] = signals
@@ -319,4 +359,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    run_guarded("Intraday bot", main)
