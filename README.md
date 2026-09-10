@@ -21,6 +21,7 @@ Start here. These are written in plain English with click-by-click instructions.
 | [docs/USER_SETUP_GUIDE.md](docs/USER_SETUP_GUIDE.md) | Full setup guide for a community member to run their own personal bot (Option B from above) |
 | [docs/AI_ASSISTED_SETUP.md](docs/AI_ASSISTED_SETUP.md) | Skip the manual reading — paste a prompt into ChatGPT/Claude and let AI walk you through setup |
 | [docs/MAINNET_LAUNCH.md](docs/MAINNET_LAUNCH.md) | Step-by-step for going from testnet to real money |
+| [docs/FORK_CHANGES.md](docs/FORK_CHANGES.md) | What this fork adds: exchange-side stops, close-only pause, per-bot sub-accounts, failure alerts |
 
 ### If you're a **developer or technical operator**
 

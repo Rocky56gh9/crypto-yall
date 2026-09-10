@@ -21,10 +21,11 @@ import os
 import sys
 import datetime as dt
 
+import numpy as np
 import requests
 
 from intraday_data_loader import fetch_all_intraday, HL_SYMBOL_MAP
-from aggressive_strategy import generate_aggressive_signals, classify_aggressive_signal
+from aggressive_strategy import generate_aggressive_signals, classify_aggressive_signal, ATR_STOP_MULT
 from hyperliquid_executor import (
     ASSETS,
     get_client,
@@ -36,6 +37,13 @@ from hyperliquid_executor import (
     _parse_response,
     _send_email,
     _send_telegram,
+    kill_switch_mode,
+    closes_only,
+    cancel_coin_stops,
+    place_stop_order,
+    stop_price_for,
+    run_guarded,
+    filter_universe,
 )
 from backtester import get_asset_profile
 
@@ -102,6 +110,8 @@ def compute_aggressive_signals() -> dict:
             action = classify_aggressive_signal(last, prev)
             price = float(df["Close"].iloc[-1])
             osc = float(sig["TwoPole_Osc"].iloc[-1]) if "TwoPole_Osc" in sig.columns else 0.0
+            atr_last = sig["ATR"].iloc[-1] if "ATR" in sig.columns else np.nan
+            atr = float(atr_last) if not np.isnan(atr_last) else 0.0
             pyramid = int(sig["Pyramid"].iloc[-1]) if "Pyramid" in sig.columns else 0
             prev_pyramid = int(sig["Pyramid"].iloc[-2]) if len(sig) >= 2 and "Pyramid" in sig.columns else pyramid
 
@@ -110,6 +120,7 @@ def compute_aggressive_signals() -> dict:
                 "action": action,
                 "price": price,
                 "osc": osc,
+                "atr": atr,
                 "pyramid": pyramid,
                 "pyramid_added": pyramid > prev_pyramid,  # fresh pyramid this bar
             }
@@ -122,9 +133,14 @@ def compute_aggressive_signals() -> dict:
 # ── Trade decisions ─────────────────────────────────────────────────────────
 
 def decide_trades(signals: dict, open_positions: dict, max_positions: int,
-                  pyramid_state: dict) -> list[dict]:
-    """Decide trades, including pyramid adds on existing winners."""
+                  pyramid_state: dict, cooldown: set | None = None) -> list[dict]:
+    """Decide trades, including pyramid adds on existing winners.
+
+    cooldown: coins whose position vanished from the exchange (e.g. the
+    resting stop fired). Skip "sync to hold" re-entries for them until the
+    strategy emits a fresh buy / enter_short."""
     trades = []
+    cooldown = cooldown or set()
 
     # Close out positions that should exit
     for ticker, info in signals.items():
@@ -178,6 +194,8 @@ def decide_trades(signals: dict, open_positions: dict, max_positions: int,
         if hl_coin in remaining:
             continue
         action = info["action"]
+        if action in ("hold_long", "hold_short") and hl_coin in cooldown:
+            continue  # stopped out on exchange; wait for a fresh entry signal
         if action in ("buy", "hold_long"):
             reason = "buy signal" if action == "buy" else "sync to hold_long"
             candidates.append({
@@ -228,10 +246,6 @@ def execute_trade(info, exchange, trade: dict, capital: float, leverage: float) 
 
 # ── Guardrails ──────────────────────────────────────────────────────────────
 
-def kill_switch_off() -> bool:
-    return os.environ.get("AGGRESSIVE_KILL_SWITCH", "ON").upper() == "OFF"
-
-
 def check_daily_drawdown(state: dict, equity: float, threshold: float) -> tuple[bool, dict]:
     today = dt.date.today().isoformat()
     key = f"day_start_{today}"
@@ -253,9 +267,14 @@ def check_daily_drawdown(state: dict, equity: float, threshold: float) -> tuple[
 def main():
     print(f"Aggressive executor started at {dt.datetime.now(dt.UTC).isoformat()}")
 
-    if kill_switch_off():
-        print("Aggressive KILL_SWITCH is OFF — halting")
+    # Kill switch: OFF = manage exits only, HALT = do nothing
+    mode = kill_switch_mode("AGGRESSIVE_KILL_SWITCH")
+    if mode == "halt":
+        print("AGGRESSIVE_KILL_SWITCH is HALT — doing nothing")
         sys.exit(0)
+    close_only = mode == "close_only"
+    if close_only:
+        print("AGGRESSIVE_KILL_SWITCH is OFF — close-only mode (no new entries)")
 
     try:
         info, exchange, address = get_client()
@@ -271,16 +290,15 @@ def main():
     state.update(state_update)
 
     if halted:
-        msg = f"Aggressive halted: {state_update.get('halt_reason')}"
+        msg = f"Aggressive halted: {state_update.get('halt_reason')} — close-only for the rest of today"
         print(msg)
         _send_email([], msg)
-        save_state(state)
-        sys.exit(0)
+        close_only = True
 
     today = dt.date.today().isoformat()
     if state.get("halted_today") == today:
-        print(f"Already halted today: {state.get('halt_reason')}")
-        sys.exit(0)
+        print(f"Already halted today: {state.get('halt_reason')} — close-only mode")
+        close_only = True
 
     signals = compute_aggressive_signals()
     open_positions = get_open_positions(info, address)
@@ -293,21 +311,34 @@ def main():
     skipped = [t for t in ASSETS if t not in signals]
     if skipped:
         print(f"Skipping unavailable assets on this env: {skipped}")
+    signals = filter_universe(signals, "AGGRESSIVE_COINS", HL_SYMBOL_MAP)
 
     # Ownership tracking with stale-position reconciliation
     owned_coins = set(state.get("owned_coins", []))
     stale_owned = owned_coins - set(open_positions.keys())
+    cooldown = set(state.get("cooldown", []))
     if stale_owned:
         print(f"Dropping stale owned coins (no position on exchange): {stale_owned}")
         owned_coins -= stale_owned
+        cooldown |= stale_owned
+        for coin in stale_owned:
+            cancel_coin_stops(info, exchange, address, coin)
+    # A coin leaves cooldown once the strategy is flat or fires a fresh entry
+    for ticker, sig in signals.items():
+        coin = HL_SYMBOL_MAP[ticker]
+        if coin in cooldown and sig["action"] not in ("hold_long", "hold_short"):
+            cooldown.discard(coin)
 
     managed_positions = {c: p for c, p in open_positions.items() if c in owned_coins}
 
     # Per-coin pyramid state (persisted across runs)
     pyramid_state = state.get("pyramid_state", {})
 
-    trades = decide_trades(signals, managed_positions, max_positions, pyramid_state)
-    print(f"Decided on {len(trades)} aggressive trade(s) (own {len(owned_coins)} position(s))")
+    trades = decide_trades(signals, managed_positions, max_positions, pyramid_state, cooldown)
+    if close_only:
+        trades = closes_only(trades)
+    print(f"Decided on {len(trades)} aggressive trade(s) (own {len(owned_coins)} position(s))"
+          + (" [close-only]" if close_only else ""))
 
     results = []
     for trade in trades:
@@ -316,18 +347,32 @@ def main():
         leverage = min(4.0, profile["max_bull_leverage"] * 1.33)  # bumped from standard
         result = execute_trade(info, exchange, trade, capital, leverage)
         results.append(result)
-        print(f"  {result['ticker']} {result['action']}: {result.get('status')}")
+        print(f"  {result['ticker']} {result['action']}: {result.get('status')}"
+              + (f" | {result['error']}" if result.get('error') else ""))
 
         if result.get("status") == "filled":
             coin = result["hl_coin"]
             if result["action"] == "close":
                 owned_coins.discard(coin)
                 pyramid_state.pop(coin, None)
-            elif result["action"].startswith("pyramid_"):
-                pyramid_state[coin] = pyramid_state.get(coin, 0) + 1
+                cancel_coin_stops(info, exchange, address, coin)
             else:
-                owned_coins.add(coin)
-                pyramid_state[coin] = 0
+                if result["action"].startswith("pyramid_"):
+                    pyramid_state[coin] = pyramid_state.get(coin, 0) + 1
+                else:
+                    owned_coins.add(coin)
+                    cooldown.discard(coin)
+                    pyramid_state[coin] = 0
+                # (Re)place the exchange stop so it covers the full position.
+                # Pyramid adds keep the original entry's stop distance from
+                # the latest fill, which is how the strategy evaluates it.
+                stop_px = stop_price_for(
+                    trade["side"], result.get("fill_price", 0.0),
+                    signals.get(trade["ticker"], {}).get("atr", 0.0), ATR_STOP_MULT,
+                )
+                stop = place_stop_order(info, exchange, address, coin, stop_px)
+                result["stop"] = stop
+                print(f"    stop order: {stop}")
 
     history = state.get("history", [])
     for r in results:
@@ -339,6 +384,7 @@ def main():
     state["last_equity"] = equity
     state["last_run"] = dt.datetime.now(dt.UTC).isoformat()
     state["owned_coins"] = sorted(owned_coins)
+    state["cooldown"] = sorted(cooldown)
     state["pyramid_state"] = pyramid_state
     latest = get_open_positions(info, address)
     state["open_positions"] = {c: p for c, p in latest.items() if c in owned_coins}
@@ -353,4 +399,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    run_guarded("Aggressive bot", main)
