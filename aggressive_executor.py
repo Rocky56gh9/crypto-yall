@@ -43,6 +43,7 @@ from hyperliquid_executor import (
     place_stop_order,
     stop_price_for,
     run_guarded,
+    filter_universe,
 )
 from backtester import get_asset_profile
 
@@ -310,6 +311,7 @@ def main():
     skipped = [t for t in ASSETS if t not in signals]
     if skipped:
         print(f"Skipping unavailable assets on this env: {skipped}")
+    signals = filter_universe(signals, "AGGRESSIVE_COINS", HL_SYMBOL_MAP)
 
     # Ownership tracking with stale-position reconciliation
     owned_coins = set(state.get("owned_coins", []))

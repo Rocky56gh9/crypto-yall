@@ -417,6 +417,25 @@ def stop_price_for(side: str, fill_px: float, atr: float, atr_mult: float) -> fl
     return fill_px - atr_mult * atr if side == "long" else fill_px + atr_mult * atr
 
 
+# ── Per-bot coin universe ────────────────────────────────────────────────────
+# Sub-accounts need $100k of mainnet volume, so most users share one account.
+# Restricting each bot to a disjoint set of coins is the practical way to stop
+# them netting against each other on the same coin.
+
+def filter_universe(signals: dict, var_name: str, ticker_map: dict) -> dict:
+    """Keep only tickers whose Hyperliquid symbol is listed in the env var
+    *var_name* (comma-separated, e.g. "BTC,ETH"). Empty/unset = all coins."""
+    raw = os.environ.get(var_name, "").strip()
+    if not raw:
+        return signals
+    allowed = {c.strip().upper() for c in raw.split(",") if c.strip()}
+    kept = {t: s for t, s in signals.items() if ticker_map[t] in allowed}
+    dropped = sorted(ticker_map[t] for t in signals if t not in kept)
+    if dropped:
+        print(f"{var_name} restricts universe to {sorted(allowed)}; ignoring {dropped}")
+    return kept
+
+
 # ── Close-only mode ──────────────────────────────────────────────────────────
 # When a bot is paused (kill switch OFF) or halted by its drawdown limit, it
 # must still manage the exits of positions it already holds. Otherwise a pause
@@ -699,6 +718,7 @@ def main():
     skipped = [t for t in ASSETS if t not in signals]
     if skipped:
         print(f"Skipping unavailable assets on this env: {skipped}")
+    signals = filter_universe(signals, "DAILY_COINS", HL_TICKER_MAP)
 
     # Ownership tracking: only manage positions this bot opened.
     # owned_coins is the set of coin symbols this bot currently holds.

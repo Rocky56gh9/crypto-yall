@@ -30,6 +30,8 @@ jobs:
           AGGRESSIVE_CAPITAL: ${{ vars.AGGRESSIVE_CAPITAL }}
           AGGRESSIVE_DD_PCT: ${{ vars.AGGRESSIVE_DD_PCT }}
           AGGRESSIVE_MAX_POSITIONS: ${{ vars.AGGRESSIVE_MAX_POSITIONS }}
+          # Optional comma-separated coin list (e.g. "BTC,ETH"). Empty = all coins.
+          AGGRESSIVE_COINS: ${{ vars.AGGRESSIVE_COINS }}
           AGGRESSIVE_KILL_SWITCH: ${{ vars.AGGRESSIVE_KILL_SWITCH }}
           GIST_TOKEN: ${{ secrets.GIST_TOKEN }}
           AGGRESSIVE_GIST_ID: ${{ secrets.AGGRESSIVE_GIST_ID }}

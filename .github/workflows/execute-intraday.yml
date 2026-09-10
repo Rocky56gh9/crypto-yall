@@ -30,6 +30,8 @@ jobs:
           INTRADAY_CAPITAL: ${{ vars.INTRADAY_CAPITAL }}
           INTRADAY_DD_PCT: ${{ vars.INTRADAY_DD_PCT }}
           INTRADAY_MAX_POSITIONS: ${{ vars.INTRADAY_MAX_POSITIONS }}
+          # Optional comma-separated coin list (e.g. "BTC,ETH"). Empty = all coins.
+          INTRADAY_COINS: ${{ vars.INTRADAY_COINS }}
           INTRADAY_KILL_SWITCH: ${{ vars.INTRADAY_KILL_SWITCH }}
           GIST_TOKEN: ${{ secrets.GIST_TOKEN }}
           INTRADAY_GIST_ID: ${{ secrets.INTRADAY_GIST_ID }}

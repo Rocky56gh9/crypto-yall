@@ -38,12 +38,32 @@ any trade decisions, leaving open positions unmanaged. Now:
 
 Applies to `KILL_SWITCH`, `INTRADAY_KILL_SWITCH`, `AGGRESSIVE_KILL_SWITCH`.
 
-## 3. Optional sub-account per bot
+## 3. Keeping the bots out of each other's way
 
 All three bots trade the same coins, and Hyperliquid nets positions per
 coin per account. One bot's `market_close` closes the whole net position,
-including another bot's trade. To isolate them, give each bot its own
-Hyperliquid sub-account and set the matching secret:
+including another bot's trade. Two ways to isolate them:
+
+### 3a. Per-bot coin lists (works for everyone)
+
+Set these GitHub **variables** to comma-separated Hyperliquid symbols.
+Empty or unset means all seven coins, as before.
+
+| Variable | Bot | Example |
+|----------|-----|---------|
+| `DAILY_COINS` | Execute Trades | `BTC,ETH,LINK,XRP` |
+| `INTRADAY_COINS` | Execute Intraday | `SOL,AVAX` |
+| `AGGRESSIVE_COINS` | Execute Aggressive | `SUI` |
+
+Give each bot a disjoint set and the netting problem disappears. A coin a
+bot already holds but that is no longer in its list is left alone until
+you close it by hand or the exchange stop fires.
+
+### 3b. Sub-account per bot (needs $100k mainnet volume)
+
+Hyperliquid only unlocks sub-accounts after $100,000 of mainnet trading
+volume, so this path is closed to most users. If you have it, give each
+bot its own sub-account and set the matching secret:
 
 | Secret | Used by |
 |--------|---------|

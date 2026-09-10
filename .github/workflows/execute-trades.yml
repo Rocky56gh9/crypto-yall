@@ -30,6 +30,8 @@ jobs:
           SEGREGATED_CAPITAL: ${{ vars.SEGREGATED_CAPITAL }}
           DAILY_DD_PCT: ${{ vars.DAILY_DD_PCT }}
           MAX_POSITIONS: ${{ vars.MAX_POSITIONS }}
+          # Optional comma-separated coin list (e.g. "BTC,ETH"). Empty = all coins.
+          DAILY_COINS: ${{ vars.DAILY_COINS }}
           KILL_SWITCH: ${{ vars.KILL_SWITCH }}
           GIST_TOKEN: ${{ secrets.GIST_TOKEN }}
           GIST_ID: ${{ secrets.TRADING_GIST_ID }}
