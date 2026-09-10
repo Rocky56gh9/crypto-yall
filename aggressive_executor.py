@@ -44,6 +44,7 @@ from hyperliquid_executor import (
     stop_price_for,
     run_guarded,
     filter_universe,
+    ensure_stops,
 )
 from backtester import get_asset_profile
 
@@ -330,6 +331,8 @@ def main():
             cooldown.discard(coin)
 
     managed_positions = {c: p for c, p in open_positions.items() if c in owned_coins}
+    ensure_stops(info, exchange, address, managed_positions, signals, HL_SYMBOL_MAP,
+                 lambda t: ATR_STOP_MULT)
 
     # Per-coin pyramid state (persisted across runs)
     pyramid_state = state.get("pyramid_state", {})
