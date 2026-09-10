@@ -756,7 +756,8 @@ def main():
         result = execute_trade(info, exchange, trade, capital, leverage)
         results.append(result)
         print(f"  {result['ticker']} {result['action']}: {result.get('status')} "
-              f"{result.get('fill_size', '')} @ {result.get('fill_price', '')}")
+              f"{result.get('fill_size', '')} @ {result.get('fill_price', '')}"
+              + (f" | {result['error']}" if result.get('error') else ""))
 
         # Update ownership on successful fills
         if result.get("status") == "filled":

@@ -347,7 +347,8 @@ def main():
         leverage = min(4.0, profile["max_bull_leverage"] * 1.33)  # bumped from standard
         result = execute_trade(info, exchange, trade, capital, leverage)
         results.append(result)
-        print(f"  {result['ticker']} {result['action']}: {result.get('status')}")
+        print(f"  {result['ticker']} {result['action']}: {result.get('status')}"
+              + (f" | {result['error']}" if result.get('error') else ""))
 
         if result.get("status") == "filled":
             coin = result["hl_coin"]
