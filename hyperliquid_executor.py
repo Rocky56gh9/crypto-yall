@@ -410,6 +410,44 @@ def place_stop_order(info, exchange, address: str, coin: str, stop_px: float) ->
     return {"status": "error", "error": str(resp), "trigger_px": trigger_px}
 
 
+def coins_with_stops(info, address: str) -> set:
+    """Coins that already have a resting trigger / reduce-only order."""
+    try:
+        orders = info.frontend_open_orders(address)
+    except Exception as e:
+        print(f"Warning: could not list open orders: {e}")
+        return set()
+    return {o["coin"] for o in orders if o.get("isTrigger") or o.get("reduceOnly")}
+
+
+def ensure_stops(info, exchange, address: str, managed_positions: dict,
+                 signals: dict, ticker_map: dict, atr_mult_for) -> list[str]:
+    """Place a stop for every owned position that has none (e.g. positions
+    opened before exchange-side stops existed, or a stop that was cancelled
+    by hand). Uses the exchange's entry price and the latest ATR from the
+    signal computation. Returns the coins that received a new stop."""
+    if not managed_positions:
+        return []
+    have = coins_with_stops(info, address)
+    coin_to_ticker = {v: k for k, v in ticker_map.items()}
+    placed = []
+    for coin, pos in managed_positions.items():
+        if coin in have:
+            continue
+        sig = signals.get(coin_to_ticker.get(coin, ""), {})
+        atr = sig.get("atr", 0.0)
+        if not atr:
+            print(f"  ensure_stops: no ATR for {coin}, skipping")
+            continue
+        side = "long" if pos["size"] > 0 else "short"
+        stop_px = stop_price_for(side, pos["entry_px"], atr, atr_mult_for(coin_to_ticker.get(coin, "")))
+        res = place_stop_order(info, exchange, address, coin, stop_px)
+        print(f"  ensure_stops: {coin} {side} -> {res}")
+        if res.get("status") == "placed":
+            placed.append(coin)
+    return placed
+
+
 def stop_price_for(side: str, fill_px: float, atr: float, atr_mult: float) -> float:
     """Initial stop for a fresh entry: fill ± atr_mult × ATR."""
     if not atr or atr <= 0 or not fill_px:
@@ -758,6 +796,8 @@ def main():
             cooldown.discard(coin)
 
     managed_positions = {c: p for c, p in open_positions.items() if c in owned_coins}
+    ensure_stops(info, exchange, address, managed_positions, signals, HL_TICKER_MAP,
+                 lambda t: float(get_asset_profile(t)["atr_mult"]))
 
     trades = decide_trades(signals, managed_positions, max_positions, cooldown)
     if close_only:
