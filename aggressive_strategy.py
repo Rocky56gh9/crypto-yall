@@ -18,7 +18,7 @@ SMA_PERIOD_30M = 20
 OSC_UPPER = 0.25         # Tighter entry threshold — more signals
 OSC_LOWER = -0.25
 ATR_PERIOD = 14
-ATR_STOP_MULT = 1.5      # Tighter stop than standard intraday's 2.0
+ATR_STOP_MULT = 3.0      # Was 1.5; see docs/FORK_CHANGES.md §7
 
 
 def generate_aggressive_signals(
