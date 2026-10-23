@@ -156,8 +156,13 @@ def coin_is_listed(info, coin: str) -> bool:
 
 # ── Signal Computation (reuse notifier logic) ───────────────────────────────
 
+def daily_mode_is_aggressive() -> bool:
+    return os.environ.get("DAILY_STRATEGY_MODE", "standard").strip().lower() == "aggressive"
+
+
+
 def compute_all_signals() -> dict:
-    """Return {ticker: {action_key, regime, price, bull_conf, signal}} — aggressive mode."""
+    """Return {ticker: {action_key, regime, price, bull_conf, signal}}."""
     all_data = fetch_data(tickers=list(ASSETS.keys()))
     current = {}
 
@@ -175,10 +180,15 @@ def compute_all_signals() -> dict:
             bull_conf = float(bull_probs.iloc[-1]) if len(bull_probs) > 0 else 0.0
             bear_conf = float(bear_probs.iloc[-1]) if len(bear_probs) > 0 else 0.0
 
-            # Aggressive mode only (per call decision)
+            # DAILY_STRATEGY_MODE: "standard" (default) = Bear → cash, long-only,
+            # 1x, z-score gated entries. "aggressive" = probabilistic leverage,
+            # pyramiding, and Bear-regime shorting. Five weeks of testnet fills
+            # showed shorts losing -$8.44 across 29 closes while longs were
+            # flat-to-positive, so standard is the default.
             sig = generate_signals(
                 df, regimes, bull_probs=bull_probs, bear_probs=bear_probs,
-                aggressive=True, bull_leverage=profile["max_bull_leverage"],
+                aggressive=daily_mode_is_aggressive(),
+                bull_leverage=profile["max_bull_leverage"],
                 allow_short=profile["allow_short"], atr_mult=profile["atr_mult"],
             )
             last = int(sig["Signal"].iloc[-1])

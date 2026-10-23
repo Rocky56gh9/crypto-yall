@@ -90,6 +90,22 @@ unexpected exception), the bot sends an email and Telegram message with
 the error before exiting non-zero. Previously you only got GitHub's
 generic "workflow failed" email.
 
+## 6. Daily bot strategy mode
+
+The daily bot used to call the strategy in aggressive mode unconditionally
+(Bear regime = short, probabilistic leverage, pyramiding). It now reads the
+`DAILY_STRATEGY_MODE` variable, default `standard`: Bear = go to cash,
+long-only, 1x, z-score gated entries. Set the variable to `aggressive` to
+restore the old behavior.
+
+Why: Sept 10 to Oct 14 testnet fills were net -$8.91. Short closes were
+-$8.44 over 29 trades; long closes +$1.02 over 59. The largest single loss
+was a BTC short stopped out during a 77k to 86k rally the HMM had labeled
+Bear.
+
+Note: at 1x, `SEGREGATED_CAPITAL` must be at least 2000 for entries to
+clear Hyperliquid's $10 minimum after size rounding.
+
 ## Sizing reminder
 
 Hyperliquid rejects orders under $10 notional. Order notional is
