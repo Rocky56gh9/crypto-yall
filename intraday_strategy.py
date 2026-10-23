@@ -17,7 +17,7 @@ SMA_PERIOD_1H = 20       # 20-hour moving average
 OSC_UPPER = 0.5          # Overbought threshold
 OSC_LOWER = -0.5         # Oversold threshold
 ATR_PERIOD = 14
-ATR_STOP_MULT = 2.0      # Tighter stop on intraday
+ATR_STOP_MULT = 3.0      # Was 2.0; see docs/FORK_CHANGES.md §7
 
 
 def generate_intraday_signals(

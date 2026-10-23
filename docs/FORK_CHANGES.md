@@ -12,8 +12,8 @@ trigger order on Hyperliquid at the strategy's ATR stop:
 | Bot | Stop distance |
 |-----|---------------|
 | Daily | fill ± asset profile `atr_mult` × ATR(14) (3.0 large cap, 4.0 mid cap) |
-| Intraday | fill ± 2.0 × ATR(14) on 1h bars |
-| Aggressive | fill ± 1.5 × ATR(14) on 30m bars |
+| Intraday | fill ± 3.0 × ATR(14) on 1h bars (was 2.0) |
+| Aggressive | fill ± 3.0 × ATR(14) on 30m bars (was 1.5) |
 
 The bot's own stop logic still runs on every scheduled pass. The exchange
 order is a backstop for the time between runs. Stops are cancelled when
@@ -105,6 +105,19 @@ Bear.
 
 Note: at 1x, `SEGREGATED_CAPITAL` must be at least 2000 for entries to
 clear Hyperliquid's $10 minimum after size rounding.
+
+## 7. Wider intraday and aggressive stops
+
+`ATR_STOP_MULT` is now 3.0 for both the intraday (was 2.0) and aggressive
+(was 1.5) strategies, matching the daily bot's large-cap profile. The same
+constant drives the in-strategy stop check and the exchange-side stop order.
+
+Why: Sept 10 to Oct 14 testnet fills, 88 closes. Only 11 were a bot's exit
+signal; 77 were the resting stop order firing between runs. Fills placed by
+the bots themselves netted +$3.90; fills closed by stops netted -$12.81.
+Half of all positions lasted under 6 hours. A 1.5x stop on 30-minute bars
+sits inside normal noise for an entry that deliberately buys a falling
+oscillator.
 
 ## Sizing reminder
 
