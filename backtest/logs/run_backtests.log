@@ -1,0 +1,10 @@
+[intraday grid] 252 sims in 13s
+[intraday random] 650 sims in 75s
+[intraday variants] 42 sims in 6s
+[intraday hl-crosscheck] 2 sims in 2s
+[aggressive grid] 252 sims in 24s
+[aggressive random] 650 sims in 170s
+[aggressive hl-crosscheck] 2 sims in 4s
+[daily standard] 91 sims in 9s
+[daily aggressive] 91 sims in 8s
+done

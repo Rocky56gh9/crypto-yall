@@ -1,0 +1,21 @@
+regimes BTC-USD: 5s
+regimes ETH-USD: 5s
+regimes SOL-USD: 5s
+regimes AVAX-USD: 5s
+regimes LINK-USD: 5s
+regimes SUI20947-USD: 4s
+regimes XRP-USD: 5s
+walk_forward BTC-USD standard: 22 folds, 205s
+walk_forward BTC-USD aggressive: 22 folds, 172s
+walk_forward ETH-USD standard: 22 folds, 205s
+walk_forward ETH-USD aggressive: 22 folds, 173s
+walk_forward SOL-USD standard: 22 folds, 201s
+walk_forward SOL-USD aggressive: 22 folds, 172s
+walk_forward AVAX-USD standard: 22 folds, 203s
+walk_forward AVAX-USD aggressive: 22 folds, 208s
+walk_forward LINK-USD standard: 22 folds, 171s
+walk_forward LINK-USD aggressive: 22 folds, 202s
+walk_forward SUI20947-USD standard: 16 folds, 155s
+walk_forward SUI20947-USD aggressive: 16 folds, 105s
+walk_forward XRP-USD standard: 22 folds, 135s
+walk_forward XRP-USD aggressive: 22 folds, 138s
