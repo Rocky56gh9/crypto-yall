@@ -119,6 +119,28 @@ Half of all positions lasted under 6 hours. A 1.5x stop on 30-minute bars
 sits inside normal noise for an entry that deliberately buys a falling
 oscillator.
 
+## 8. State-based exits
+
+All three bots now close a position whenever the strategy's current
+signal no longer matches it (flat, or the opposite side). Before, they
+closed only on the one-bar transition actions (`sell_exit`,
+`cover_short`, `liquidate`, flips). Those actions exist for exactly one
+bar, so a skipped GitHub run turned the exit into `flat`, which closed
+nothing. The position then sat until the exchange stop fired.
+
+Why: this is the mechanism behind 77 of 88 testnet closes being stops. A
+backtest replay of Sept 10 to Oct 14 at the cadence GitHub actually
+delivered reproduces it (75-86% stop exits, 10-20% win rate, vs 87.5%
+and 12% live). At full cadence the change is a no-op: every transition
+is seen. At throttled cadence it restores the daily bot's out-of-sample
+Sortino from 1.93 to 2.74 at 50% run delivery, against 3.16 with every
+run delivered. Details: `backtest/results/REPORT.md`; verification:
+`backtest/verify_exit_fix.py`.
+
+A close freed this way also frees the slot, so the existing "sync to
+hold" logic can re-enter in the same run if the strategy now holds the
+opposite side (unless the coin is in stop-out cooldown).
+
 ## Sizing reminder
 
 Hyperliquid rejects orders under $10 notional. Order notional is
