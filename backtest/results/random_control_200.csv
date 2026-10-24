@@ -1,0 +1,2 @@
+bot,scenario,seeds,strategy_sortino,random_median,random_p95,random_p99,seeds_beating_strategy,strategy_pctile
+intraday,walk_forward_full,200,0.7072711213427672,-0.03749354933599747,0.7096373385949319,0.9044295600659386,11,94.5

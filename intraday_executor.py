@@ -147,16 +147,20 @@ def decide_trades(signals: dict, open_positions: dict, max_positions: int,
         is_long = pos["size"] > 0
         is_short = pos["size"] < 0
 
+        # State-based exit: close whenever the strategy no longer holds this
+        # side. Matching only the one-bar transition actions (sell_exit,
+        # cover_short, flips) lost every exit whose bar fell between runs and
+        # left the position to the exchange stop. See docs/FORK_CHANGES.md §8.
         action = info["action"]
-        if (action == "sell_exit" and is_long) or \
-           (action == "cover_short" and is_short) or \
-           (action == "buy" and is_short) or \
-           (action == "enter_short" and is_long):
+        held = 1 if is_long else -1
+        if info["signal"] != held:
+            reason = (f"{action} signal" if action in ("sell_exit", "cover_short", "buy", "enter_short")
+                      else f"strategy {action} (exit missed between runs)")
             trades.append({
                 "ticker": ticker, "hl_coin": hl_coin,
                 "action": "close",
                 "side": "long" if is_long else "short",
-                "reason": f"{action} signal",
+                "reason": reason,
             })
 
     closes = {t["hl_coin"] for t in trades if t["action"] == "close"}

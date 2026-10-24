@@ -1,0 +1,60 @@
+[intraday full] 12 sims in 6s
+[intraday random x200] 2400 sims in 284s
+     bot          scenario  seeds  strategy_sortino  random_median  random_p95  random_p99  seeds_beating_strategy  strategy_pctile
+intraday walk_forward_full    200          0.707271      -0.037494    0.709637     0.90443                      11             94.5
+                          scenario     excluded  ann_net_pct   sortino    net_usd  trades  ann_net_ex_best_pct
+        intraday_walk_forward_full         none     1.029625  0.707271  31.931641    1937             0.749612
+        intraday_walk_forward_full      BTC-USD     0.779607  0.563405  24.115613    1582             0.498150
+        intraday_walk_forward_full      ETH-USD     0.792227  0.596083  24.509189    1596             0.510843
+        intraday_walk_forward_full      SOL-USD    -0.358342 -0.237615 -10.955012    1677            -0.646519
+        intraday_walk_forward_full     AVAX-USD     1.328279  1.070305  41.320707    1678             1.049978
+        intraday_walk_forward_full     LINK-USD     1.269667  0.963240  39.473557    1709             0.991032
+        intraday_walk_forward_full SUI20947-USD     1.750533  1.410381  54.693551    1692             1.474626
+        intraday_walk_forward_full      XRP-USD     0.596999  0.462963  18.432238    1688             0.373927
+  daily_standard_walk_forward_full         none     2.021317  3.160986 146.809429     115             1.028361
+  daily_standard_walk_forward_full      BTC-USD     1.867871  3.033755 135.401682      93             0.871045
+  daily_standard_walk_forward_full      ETH-USD     1.680711  2.936480 121.546539      96             0.679136
+  daily_standard_walk_forward_full      SOL-USD     2.044899  3.238693 148.566462     112             1.052536
+  daily_standard_walk_forward_full     AVAX-USD     1.826102  3.638426 132.304029      97             0.828219
+  daily_standard_walk_forward_full     LINK-USD     1.898629  3.760405 137.684848      85             0.902580
+  daily_standard_walk_forward_full SUI20947-USD     2.000881  3.199483 145.287629     109             1.007411
+  daily_standard_walk_forward_full      XRP-USD     0.839460  1.537494  60.065386      98             0.617295
+daily_aggressive_walk_forward_full         none     3.575408  3.016126 264.823528     167             2.134429
+daily_aggressive_walk_forward_full      BTC-USD     3.151744  2.950214 232.201395     129             1.695302
+daily_aggressive_walk_forward_full      ETH-USD     2.762423  2.941004 202.522275     130             1.291564
+daily_aggressive_walk_forward_full      SOL-USD     3.538389  3.048895 261.959504     151             2.096068
+daily_aggressive_walk_forward_full     AVAX-USD     3.289649  3.249235 242.782829     144             1.838266
+daily_aggressive_walk_forward_full     LINK-USD     3.437573  3.358002 254.172948     137             1.991589
+daily_aggressive_walk_forward_full SUI20947-USD     3.545906  3.041258 262.540828     161             2.103857
+daily_aggressive_walk_forward_full      XRP-USD     1.832272  1.725853 132.761393     150             1.349592
+[intraday live window] 21 sims in 3s
+[aggressive live window] 21 sims in 3s
+                        runs  trades   net_usd  costs_usd  win_rate_pct  pct_stop_exits  median_hold_h
+bot        cadence                                                                                    
+aggressive full       1680.0   224.0 -6.733995  10.486398     26.339286       59.375000          5.750
+           throttled   168.0    81.5  3.176200   3.870388      9.963768       86.033824          5.625
+intraday   full        840.0    68.0  5.112000   1.562939     29.411765       45.588235         14.500
+           throttled   168.5    28.5  4.590466   0.671344     20.000000       74.679487         24.750
+[state_exits=False] 124 sims in 13s
+[state_exits=True] 124 sims in 15s
+             bot       exit_rule        cadence  ann_net_pct   sortino  trades  pct_stop_exits  avg_net_bps  median_hold_h
+      aggressive        as_coded           full   -13.054930 -2.156788  8243.0       25.682397   -11.958728            8.5
+      aggressive        as_coded      throttled     1.624907  0.397182  1816.5       72.013229    13.737420           19.5
+      aggressive state_based_fix           full   -13.054930 -2.156788  8243.0       25.682397   -11.958728            8.5
+      aggressive state_based_fix      throttled    -6.244402 -1.354486  5149.5       36.727764    -7.964272           10.5
+daily_aggressive        as_coded delivery_0.125     4.799489  1.504265    51.0       29.166667  2052.579628          636.0
+daily_aggressive        as_coded   delivery_0.5     4.284147  2.034234   101.0       15.859339   887.338602          312.0
+daily_aggressive        as_coded           full     3.575408  3.016126   167.0        2.994012   484.927198          144.0
+daily_aggressive state_based_fix delivery_0.125     2.993085  2.118592    77.5       11.482293   679.969967          312.0
+daily_aggressive state_based_fix   delivery_0.5     3.386221  2.802669   130.0        5.992593   568.537425          216.0
+daily_aggressive state_based_fix           full     3.575408  3.016126   167.0        2.994012   484.927198          144.0
+  daily_standard        as_coded delivery_0.125     1.773807  1.284059    33.5       34.330357  1975.917951          768.0
+  daily_standard        as_coded   delivery_0.5     1.994274  1.931780    64.0       14.285714  1090.526165          318.0
+  daily_standard        as_coded           full     2.021317  3.160986   115.0        0.869565   638.301865           72.0
+  daily_standard state_based_fix delivery_0.125     1.175029  1.746355    47.5        9.009740   877.386968          336.0
+  daily_standard state_based_fix   delivery_0.5     1.789426  2.782170    82.0        3.488844   764.559194          192.0
+  daily_standard state_based_fix           full     2.021317  3.160986   115.0        0.869565   638.301865           72.0
+        intraday        as_coded           full    -0.445097 -0.252428  2657.0       23.522770    -2.973034           16.0
+        intraday        as_coded      throttled     0.978418  0.650698   701.5       59.617926    25.696937           36.0
+        intraday state_based_fix           full    -0.445097 -0.252428  2657.0       23.522770    -2.973034           16.0
+        intraday state_based_fix      throttled    -0.332884 -0.207609  2000.5       29.584348    -2.943613           19.0

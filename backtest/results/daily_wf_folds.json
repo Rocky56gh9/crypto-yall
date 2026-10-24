@@ -1,0 +1,3878 @@
+{
+ "BTC-USD|standard": [
+  {
+   "oos_start": "2022-11-08",
+   "oos_end": "2023-01-09",
+   "iloc_start": 252,
+   "iloc_end": 315,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2023-01-10",
+   "oos_end": "2023-03-13",
+   "iloc_start": 315,
+   "iloc_end": 378,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2023-03-14",
+   "oos_end": "2023-05-15",
+   "iloc_start": 378,
+   "iloc_end": 441,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2023-05-16",
+   "oos_end": "2023-07-17",
+   "iloc_start": 441,
+   "iloc_end": 504,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": 0.5
+   }
+  },
+  {
+   "oos_start": "2023-07-18",
+   "oos_end": "2023-09-18",
+   "iloc_start": 504,
+   "iloc_end": 567,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": 0.5
+   }
+  },
+  {
+   "oos_start": "2023-09-19",
+   "oos_end": "2023-11-20",
+   "iloc_start": 567,
+   "iloc_end": 630,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": 0.0
+   }
+  },
+  {
+   "oos_start": "2023-11-21",
+   "oos_end": "2024-01-22",
+   "iloc_start": 630,
+   "iloc_end": 693,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": 0.0
+   }
+  },
+  {
+   "oos_start": "2024-01-23",
+   "oos_end": "2024-03-25",
+   "iloc_start": 693,
+   "iloc_end": 756,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": 0.0
+   }
+  },
+  {
+   "oos_start": "2024-03-26",
+   "oos_end": "2024-05-27",
+   "iloc_start": 756,
+   "iloc_end": 819,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 2.5,
+    "mom_threshold": 0.0
+   }
+  },
+  {
+   "oos_start": "2024-05-28",
+   "oos_end": "2024-07-29",
+   "iloc_start": 819,
+   "iloc_end": 882,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 2.5,
+    "mom_threshold": 0.5
+   }
+  },
+  {
+   "oos_start": "2024-07-30",
+   "oos_end": "2024-09-30",
+   "iloc_start": 882,
+   "iloc_end": 945,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 2.5,
+    "mom_threshold": 0.5
+   }
+  },
+  {
+   "oos_start": "2024-10-01",
+   "oos_end": "2024-12-02",
+   "iloc_start": 945,
+   "iloc_end": 1008,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 2.5,
+    "mom_threshold": 0.0
+   }
+  },
+  {
+   "oos_start": "2024-12-03",
+   "oos_end": "2025-02-03",
+   "iloc_start": 1008,
+   "iloc_end": 1071,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": 0.0
+   }
+  },
+  {
+   "oos_start": "2025-02-04",
+   "oos_end": "2025-04-07",
+   "iloc_start": 1071,
+   "iloc_end": 1134,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-04-08",
+   "oos_end": "2025-06-09",
+   "iloc_start": 1134,
+   "iloc_end": 1197,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-06-10",
+   "oos_end": "2025-08-11",
+   "iloc_start": 1197,
+   "iloc_end": 1260,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-08-12",
+   "oos_end": "2025-10-13",
+   "iloc_start": 1260,
+   "iloc_end": 1323,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-10-14",
+   "oos_end": "2025-12-15",
+   "iloc_start": 1323,
+   "iloc_end": 1386,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-12-16",
+   "oos_end": "2026-02-16",
+   "iloc_start": 1386,
+   "iloc_end": 1449,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2026-02-17",
+   "oos_end": "2026-04-20",
+   "iloc_start": 1449,
+   "iloc_end": 1512,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2026-04-21",
+   "oos_end": "2026-06-22",
+   "iloc_start": 1512,
+   "iloc_end": 1575,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2026-06-23",
+   "oos_end": "2026-08-24",
+   "iloc_start": 1575,
+   "iloc_end": 1638,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": 0.0
+   }
+  }
+ ],
+ "BTC-USD|aggressive": [
+  {
+   "oos_start": "2022-11-08",
+   "oos_end": "2023-01-09",
+   "iloc_start": 252,
+   "iloc_end": 315,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2023-01-10",
+   "oos_end": "2023-03-13",
+   "iloc_start": 315,
+   "iloc_end": 378,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2023-03-14",
+   "oos_end": "2023-05-15",
+   "iloc_start": 378,
+   "iloc_end": 441,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2023-05-16",
+   "oos_end": "2023-07-17",
+   "iloc_start": 441,
+   "iloc_end": 504,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": 0.5
+   }
+  },
+  {
+   "oos_start": "2023-07-18",
+   "oos_end": "2023-09-18",
+   "iloc_start": 504,
+   "iloc_end": 567,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": 0.5
+   }
+  },
+  {
+   "oos_start": "2023-09-19",
+   "oos_end": "2023-11-20",
+   "iloc_start": 567,
+   "iloc_end": 630,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": 0.5
+   }
+  },
+  {
+   "oos_start": "2023-11-21",
+   "oos_end": "2024-01-22",
+   "iloc_start": 630,
+   "iloc_end": 693,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": 0.5
+   }
+  },
+  {
+   "oos_start": "2024-01-23",
+   "oos_end": "2024-03-25",
+   "iloc_start": 693,
+   "iloc_end": 756,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": 0.0
+   }
+  },
+  {
+   "oos_start": "2024-03-26",
+   "oos_end": "2024-05-27",
+   "iloc_start": 756,
+   "iloc_end": 819,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 2.5,
+    "mom_threshold": 0.0
+   }
+  },
+  {
+   "oos_start": "2024-05-28",
+   "oos_end": "2024-07-29",
+   "iloc_start": 819,
+   "iloc_end": 882,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 2.5,
+    "mom_threshold": 0.5
+   }
+  },
+  {
+   "oos_start": "2024-07-30",
+   "oos_end": "2024-09-30",
+   "iloc_start": 882,
+   "iloc_end": 945,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 2.5,
+    "mom_threshold": 0.5
+   }
+  },
+  {
+   "oos_start": "2024-10-01",
+   "oos_end": "2024-12-02",
+   "iloc_start": 945,
+   "iloc_end": 1008,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 2.5,
+    "mom_threshold": 0.5
+   }
+  },
+  {
+   "oos_start": "2024-12-03",
+   "oos_end": "2025-02-03",
+   "iloc_start": 1008,
+   "iloc_end": 1071,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": 0.5
+   }
+  },
+  {
+   "oos_start": "2025-02-04",
+   "oos_end": "2025-04-07",
+   "iloc_start": 1071,
+   "iloc_end": 1134,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-04-08",
+   "oos_end": "2025-06-09",
+   "iloc_start": 1134,
+   "iloc_end": 1197,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": 0.0
+   }
+  },
+  {
+   "oos_start": "2025-06-10",
+   "oos_end": "2025-08-11",
+   "iloc_start": 1197,
+   "iloc_end": 1260,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-08-12",
+   "oos_end": "2025-10-13",
+   "iloc_start": 1260,
+   "iloc_end": 1323,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-10-14",
+   "oos_end": "2025-12-15",
+   "iloc_start": 1323,
+   "iloc_end": 1386,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-12-16",
+   "oos_end": "2026-02-16",
+   "iloc_start": 1386,
+   "iloc_end": 1449,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2026-02-17",
+   "oos_end": "2026-04-20",
+   "iloc_start": 1449,
+   "iloc_end": 1512,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2026-04-21",
+   "oos_end": "2026-06-22",
+   "iloc_start": 1512,
+   "iloc_end": 1575,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2026-06-23",
+   "oos_end": "2026-08-24",
+   "iloc_start": 1575,
+   "iloc_end": 1638,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": 0.0
+   }
+  }
+ ],
+ "ETH-USD|standard": [
+  {
+   "oos_start": "2022-11-08",
+   "oos_end": "2023-01-09",
+   "iloc_start": 252,
+   "iloc_end": 315,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2023-01-10",
+   "oos_end": "2023-03-13",
+   "iloc_start": 315,
+   "iloc_end": 378,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2023-03-14",
+   "oos_end": "2023-05-15",
+   "iloc_start": 378,
+   "iloc_end": 441,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2023-05-16",
+   "oos_end": "2023-07-17",
+   "iloc_start": 441,
+   "iloc_end": 504,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": 0.0
+   }
+  },
+  {
+   "oos_start": "2023-07-18",
+   "oos_end": "2023-09-18",
+   "iloc_start": 504,
+   "iloc_end": 567,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": 0.5
+   }
+  },
+  {
+   "oos_start": "2023-09-19",
+   "oos_end": "2023-11-20",
+   "iloc_start": 567,
+   "iloc_end": 630,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": 0.5
+   }
+  },
+  {
+   "oos_start": "2023-11-21",
+   "oos_end": "2024-01-22",
+   "iloc_start": 630,
+   "iloc_end": 693,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": 0.5
+   }
+  },
+  {
+   "oos_start": "2024-01-23",
+   "oos_end": "2024-03-25",
+   "iloc_start": 693,
+   "iloc_end": 756,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": 0.5
+   }
+  },
+  {
+   "oos_start": "2024-03-26",
+   "oos_end": "2024-05-27",
+   "iloc_start": 756,
+   "iloc_end": 819,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2024-05-28",
+   "oos_end": "2024-07-29",
+   "iloc_start": 819,
+   "iloc_end": 882,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2024-07-30",
+   "oos_end": "2024-09-30",
+   "iloc_start": 882,
+   "iloc_end": 945,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2024-10-01",
+   "oos_end": "2024-12-02",
+   "iloc_start": 945,
+   "iloc_end": 1008,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2024-12-03",
+   "oos_end": "2025-02-03",
+   "iloc_start": 1008,
+   "iloc_end": 1071,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-02-04",
+   "oos_end": "2025-04-07",
+   "iloc_start": 1071,
+   "iloc_end": 1134,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-04-08",
+   "oos_end": "2025-06-09",
+   "iloc_start": 1134,
+   "iloc_end": 1197,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-06-10",
+   "oos_end": "2025-08-11",
+   "iloc_start": 1197,
+   "iloc_end": 1260,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-08-12",
+   "oos_end": "2025-10-13",
+   "iloc_start": 1260,
+   "iloc_end": 1323,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-10-14",
+   "oos_end": "2025-12-15",
+   "iloc_start": 1323,
+   "iloc_end": 1386,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-12-16",
+   "oos_end": "2026-02-16",
+   "iloc_start": 1386,
+   "iloc_end": 1449,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2026-02-17",
+   "oos_end": "2026-04-20",
+   "iloc_start": 1449,
+   "iloc_end": 1512,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2026-04-21",
+   "oos_end": "2026-06-22",
+   "iloc_start": 1512,
+   "iloc_end": 1575,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2026-06-23",
+   "oos_end": "2026-08-24",
+   "iloc_start": 1575,
+   "iloc_end": 1638,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  }
+ ],
+ "ETH-USD|aggressive": [
+  {
+   "oos_start": "2022-11-08",
+   "oos_end": "2023-01-09",
+   "iloc_start": 252,
+   "iloc_end": 315,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2023-01-10",
+   "oos_end": "2023-03-13",
+   "iloc_start": 315,
+   "iloc_end": 378,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2023-03-14",
+   "oos_end": "2023-05-15",
+   "iloc_start": 378,
+   "iloc_end": 441,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2023-05-16",
+   "oos_end": "2023-07-17",
+   "iloc_start": 441,
+   "iloc_end": 504,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": 0.0
+   }
+  },
+  {
+   "oos_start": "2023-07-18",
+   "oos_end": "2023-09-18",
+   "iloc_start": 504,
+   "iloc_end": 567,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": 0.5
+   }
+  },
+  {
+   "oos_start": "2023-09-19",
+   "oos_end": "2023-11-20",
+   "iloc_start": 567,
+   "iloc_end": 630,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": 0.5
+   }
+  },
+  {
+   "oos_start": "2023-11-21",
+   "oos_end": "2024-01-22",
+   "iloc_start": 630,
+   "iloc_end": 693,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 2.0,
+    "mom_threshold": 0.5
+   }
+  },
+  {
+   "oos_start": "2024-01-23",
+   "oos_end": "2024-03-25",
+   "iloc_start": 693,
+   "iloc_end": 756,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 2.0,
+    "mom_threshold": 0.5
+   }
+  },
+  {
+   "oos_start": "2024-03-26",
+   "oos_end": "2024-05-27",
+   "iloc_start": 756,
+   "iloc_end": 819,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2024-05-28",
+   "oos_end": "2024-07-29",
+   "iloc_start": 819,
+   "iloc_end": 882,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 2.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2024-07-30",
+   "oos_end": "2024-09-30",
+   "iloc_start": 882,
+   "iloc_end": 945,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 2.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2024-10-01",
+   "oos_end": "2024-12-02",
+   "iloc_start": 945,
+   "iloc_end": 1008,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 2.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2024-12-03",
+   "oos_end": "2025-02-03",
+   "iloc_start": 1008,
+   "iloc_end": 1071,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 2.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-02-04",
+   "oos_end": "2025-04-07",
+   "iloc_start": 1071,
+   "iloc_end": 1134,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 2.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-04-08",
+   "oos_end": "2025-06-09",
+   "iloc_start": 1134,
+   "iloc_end": 1197,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 2.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-06-10",
+   "oos_end": "2025-08-11",
+   "iloc_start": 1197,
+   "iloc_end": 1260,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 2.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-08-12",
+   "oos_end": "2025-10-13",
+   "iloc_start": 1260,
+   "iloc_end": 1323,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-10-14",
+   "oos_end": "2025-12-15",
+   "iloc_start": 1323,
+   "iloc_end": 1386,
+   "params": {
+    "osc_lower": -0.5,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 2.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-12-16",
+   "oos_end": "2026-02-16",
+   "iloc_start": 1386,
+   "iloc_end": 1449,
+   "params": {
+    "osc_lower": -0.5,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 2.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2026-02-17",
+   "oos_end": "2026-04-20",
+   "iloc_start": 1449,
+   "iloc_end": 1512,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2026-04-21",
+   "oos_end": "2026-06-22",
+   "iloc_start": 1512,
+   "iloc_end": 1575,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2026-06-23",
+   "oos_end": "2026-08-24",
+   "iloc_start": 1575,
+   "iloc_end": 1638,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 1.0,
+    "zscore_entry": -2.5,
+    "zscore_exit": 2.5,
+    "mom_threshold": -0.5
+   }
+  }
+ ],
+ "SOL-USD|standard": [
+  {
+   "oos_start": "2022-11-08",
+   "oos_end": "2023-01-09",
+   "iloc_start": 252,
+   "iloc_end": 315,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2023-01-10",
+   "oos_end": "2023-03-13",
+   "iloc_start": 315,
+   "iloc_end": 378,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2023-03-14",
+   "oos_end": "2023-05-15",
+   "iloc_start": 378,
+   "iloc_end": 441,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2023-05-16",
+   "oos_end": "2023-07-17",
+   "iloc_start": 441,
+   "iloc_end": 504,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2023-07-18",
+   "oos_end": "2023-09-18",
+   "iloc_start": 504,
+   "iloc_end": 567,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2023-09-19",
+   "oos_end": "2023-11-20",
+   "iloc_start": 567,
+   "iloc_end": 630,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2023-11-21",
+   "oos_end": "2024-01-22",
+   "iloc_start": 630,
+   "iloc_end": 693,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2024-01-23",
+   "oos_end": "2024-03-25",
+   "iloc_start": 693,
+   "iloc_end": 756,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2024-03-26",
+   "oos_end": "2024-05-27",
+   "iloc_start": 756,
+   "iloc_end": 819,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2024-05-28",
+   "oos_end": "2024-07-29",
+   "iloc_start": 819,
+   "iloc_end": 882,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2024-07-30",
+   "oos_end": "2024-09-30",
+   "iloc_start": 882,
+   "iloc_end": 945,
+   "params": {
+    "osc_lower": -0.5,
+    "osc_upper": 2.0,
+    "zscore_entry": -1.5,
+    "zscore_exit": 2.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2024-10-01",
+   "oos_end": "2024-12-02",
+   "iloc_start": 945,
+   "iloc_end": 1008,
+   "params": {
+    "osc_lower": -0.5,
+    "osc_upper": 2.0,
+    "zscore_entry": -1.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2024-12-03",
+   "oos_end": "2025-02-03",
+   "iloc_start": 1008,
+   "iloc_end": 1071,
+   "params": {
+    "osc_lower": -0.5,
+    "osc_upper": 2.0,
+    "zscore_entry": -1.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-02-04",
+   "oos_end": "2025-04-07",
+   "iloc_start": 1071,
+   "iloc_end": 1134,
+   "params": {
+    "osc_lower": -0.5,
+    "osc_upper": 2.0,
+    "zscore_entry": -1.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-04-08",
+   "oos_end": "2025-06-09",
+   "iloc_start": 1134,
+   "iloc_end": 1197,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-06-10",
+   "oos_end": "2025-08-11",
+   "iloc_start": 1197,
+   "iloc_end": 1260,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-08-12",
+   "oos_end": "2025-10-13",
+   "iloc_start": 1260,
+   "iloc_end": 1323,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-10-14",
+   "oos_end": "2025-12-15",
+   "iloc_start": 1323,
+   "iloc_end": 1386,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-12-16",
+   "oos_end": "2026-02-16",
+   "iloc_start": 1386,
+   "iloc_end": 1449,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2026-02-17",
+   "oos_end": "2026-04-20",
+   "iloc_start": 1449,
+   "iloc_end": 1512,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2026-04-21",
+   "oos_end": "2026-06-22",
+   "iloc_start": 1512,
+   "iloc_end": 1575,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2026-06-23",
+   "oos_end": "2026-08-24",
+   "iloc_start": 1575,
+   "iloc_end": 1638,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": 0.5
+   }
+  }
+ ],
+ "SOL-USD|aggressive": [
+  {
+   "oos_start": "2022-11-08",
+   "oos_end": "2023-01-09",
+   "iloc_start": 252,
+   "iloc_end": 315,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2023-01-10",
+   "oos_end": "2023-03-13",
+   "iloc_start": 315,
+   "iloc_end": 378,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2023-03-14",
+   "oos_end": "2023-05-15",
+   "iloc_start": 378,
+   "iloc_end": 441,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2023-05-16",
+   "oos_end": "2023-07-17",
+   "iloc_start": 441,
+   "iloc_end": 504,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2023-07-18",
+   "oos_end": "2023-09-18",
+   "iloc_start": 504,
+   "iloc_end": 567,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 2.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2023-09-19",
+   "oos_end": "2023-11-20",
+   "iloc_start": 567,
+   "iloc_end": 630,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 2.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2023-11-21",
+   "oos_end": "2024-01-22",
+   "iloc_start": 630,
+   "iloc_end": 693,
+   "params": {
+    "osc_lower": -1.5,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 2.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2024-01-23",
+   "oos_end": "2024-03-25",
+   "iloc_start": 693,
+   "iloc_end": 756,
+   "params": {
+    "osc_lower": -1.5,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 2.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2024-03-26",
+   "oos_end": "2024-05-27",
+   "iloc_start": 756,
+   "iloc_end": 819,
+   "params": {
+    "osc_lower": -0.5,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 2.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2024-05-28",
+   "oos_end": "2024-07-29",
+   "iloc_start": 819,
+   "iloc_end": 882,
+   "params": {
+    "osc_lower": -1.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 2.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2024-07-30",
+   "oos_end": "2024-09-30",
+   "iloc_start": 882,
+   "iloc_end": 945,
+   "params": {
+    "osc_lower": -0.5,
+    "osc_upper": 2.0,
+    "zscore_entry": -2.5,
+    "zscore_exit": 2.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2024-10-01",
+   "oos_end": "2024-12-02",
+   "iloc_start": 945,
+   "iloc_end": 1008,
+   "params": {
+    "osc_lower": -0.5,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 2.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2024-12-03",
+   "oos_end": "2025-02-03",
+   "iloc_start": 1008,
+   "iloc_end": 1071,
+   "params": {
+    "osc_lower": -0.5,
+    "osc_upper": 1.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 2.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-02-04",
+   "oos_end": "2025-04-07",
+   "iloc_start": 1071,
+   "iloc_end": 1134,
+   "params": {
+    "osc_lower": -0.5,
+    "osc_upper": 2.0,
+    "zscore_entry": -2.5,
+    "zscore_exit": 2.0,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-04-08",
+   "oos_end": "2025-06-09",
+   "iloc_start": 1134,
+   "iloc_end": 1197,
+   "params": {
+    "osc_lower": -1.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 2.0,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-06-10",
+   "oos_end": "2025-08-11",
+   "iloc_start": 1197,
+   "iloc_end": 1260,
+   "params": {
+    "osc_lower": -1.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 2.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-08-12",
+   "oos_end": "2025-10-13",
+   "iloc_start": 1260,
+   "iloc_end": 1323,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-10-14",
+   "oos_end": "2025-12-15",
+   "iloc_start": 1323,
+   "iloc_end": 1386,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-12-16",
+   "oos_end": "2026-02-16",
+   "iloc_start": 1386,
+   "iloc_end": 1449,
+   "params": {
+    "osc_lower": -1.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2026-02-17",
+   "oos_end": "2026-04-20",
+   "iloc_start": 1449,
+   "iloc_end": 1512,
+   "params": {
+    "osc_lower": -1.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 2.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2026-04-21",
+   "oos_end": "2026-06-22",
+   "iloc_start": 1512,
+   "iloc_end": 1575,
+   "params": {
+    "osc_lower": -1.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 2.5,
+    "mom_threshold": 0.5
+   }
+  },
+  {
+   "oos_start": "2026-06-23",
+   "oos_end": "2026-08-24",
+   "iloc_start": 1575,
+   "iloc_end": 1638,
+   "params": {
+    "osc_lower": -1.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 2.5,
+    "mom_threshold": 0.5
+   }
+  }
+ ],
+ "AVAX-USD|standard": [
+  {
+   "oos_start": "2022-11-08",
+   "oos_end": "2023-01-09",
+   "iloc_start": 252,
+   "iloc_end": 315,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2023-01-10",
+   "oos_end": "2023-03-13",
+   "iloc_start": 315,
+   "iloc_end": 378,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2023-03-14",
+   "oos_end": "2023-05-15",
+   "iloc_start": 378,
+   "iloc_end": 441,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2023-05-16",
+   "oos_end": "2023-07-17",
+   "iloc_start": 441,
+   "iloc_end": 504,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2023-07-18",
+   "oos_end": "2023-09-18",
+   "iloc_start": 504,
+   "iloc_end": 567,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": 0.0
+   }
+  },
+  {
+   "oos_start": "2023-09-19",
+   "oos_end": "2023-11-20",
+   "iloc_start": 567,
+   "iloc_end": 630,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": 0.0
+   }
+  },
+  {
+   "oos_start": "2023-11-21",
+   "oos_end": "2024-01-22",
+   "iloc_start": 630,
+   "iloc_end": 693,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": 0.0
+   }
+  },
+  {
+   "oos_start": "2024-01-23",
+   "oos_end": "2024-03-25",
+   "iloc_start": 693,
+   "iloc_end": 756,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": 0.0
+   }
+  },
+  {
+   "oos_start": "2024-03-26",
+   "oos_end": "2024-05-27",
+   "iloc_start": 756,
+   "iloc_end": 819,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": 0.0
+   }
+  },
+  {
+   "oos_start": "2024-05-28",
+   "oos_end": "2024-07-29",
+   "iloc_start": 819,
+   "iloc_end": 882,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": 0.0
+   }
+  },
+  {
+   "oos_start": "2024-07-30",
+   "oos_end": "2024-09-30",
+   "iloc_start": 882,
+   "iloc_end": 945,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": 0.0
+   }
+  },
+  {
+   "oos_start": "2024-10-01",
+   "oos_end": "2024-12-02",
+   "iloc_start": 945,
+   "iloc_end": 1008,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2024-12-03",
+   "oos_end": "2025-02-03",
+   "iloc_start": 1008,
+   "iloc_end": 1071,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": 0.5
+   }
+  },
+  {
+   "oos_start": "2025-02-04",
+   "oos_end": "2025-04-07",
+   "iloc_start": 1071,
+   "iloc_end": 1134,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-04-08",
+   "oos_end": "2025-06-09",
+   "iloc_start": 1134,
+   "iloc_end": 1197,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-06-10",
+   "oos_end": "2025-08-11",
+   "iloc_start": 1197,
+   "iloc_end": 1260,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-08-12",
+   "oos_end": "2025-10-13",
+   "iloc_start": 1260,
+   "iloc_end": 1323,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-10-14",
+   "oos_end": "2025-12-15",
+   "iloc_start": 1323,
+   "iloc_end": 1386,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-12-16",
+   "oos_end": "2026-02-16",
+   "iloc_start": 1386,
+   "iloc_end": 1449,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2026-02-17",
+   "oos_end": "2026-04-20",
+   "iloc_start": 1449,
+   "iloc_end": 1512,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2026-04-21",
+   "oos_end": "2026-06-22",
+   "iloc_start": 1512,
+   "iloc_end": 1575,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2026-06-23",
+   "oos_end": "2026-08-24",
+   "iloc_start": 1575,
+   "iloc_end": 1638,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  }
+ ],
+ "AVAX-USD|aggressive": [
+  {
+   "oos_start": "2022-11-08",
+   "oos_end": "2023-01-09",
+   "iloc_start": 252,
+   "iloc_end": 315,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2023-01-10",
+   "oos_end": "2023-03-13",
+   "iloc_start": 315,
+   "iloc_end": 378,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2023-03-14",
+   "oos_end": "2023-05-15",
+   "iloc_start": 378,
+   "iloc_end": 441,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2023-05-16",
+   "oos_end": "2023-07-17",
+   "iloc_start": 441,
+   "iloc_end": 504,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2023-07-18",
+   "oos_end": "2023-09-18",
+   "iloc_start": 504,
+   "iloc_end": 567,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": 0.0
+   }
+  },
+  {
+   "oos_start": "2023-09-19",
+   "oos_end": "2023-11-20",
+   "iloc_start": 567,
+   "iloc_end": 630,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": 0.0
+   }
+  },
+  {
+   "oos_start": "2023-11-21",
+   "oos_end": "2024-01-22",
+   "iloc_start": 630,
+   "iloc_end": 693,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2024-01-23",
+   "oos_end": "2024-03-25",
+   "iloc_start": 693,
+   "iloc_end": 756,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": 0.0
+   }
+  },
+  {
+   "oos_start": "2024-03-26",
+   "oos_end": "2024-05-27",
+   "iloc_start": 756,
+   "iloc_end": 819,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": 0.0
+   }
+  },
+  {
+   "oos_start": "2024-05-28",
+   "oos_end": "2024-07-29",
+   "iloc_start": 819,
+   "iloc_end": 882,
+   "params": {
+    "osc_lower": -1.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 2.5,
+    "mom_threshold": 0.0
+   }
+  },
+  {
+   "oos_start": "2024-07-30",
+   "oos_end": "2024-09-30",
+   "iloc_start": 882,
+   "iloc_end": 945,
+   "params": {
+    "osc_lower": -1.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": 0.0
+   }
+  },
+  {
+   "oos_start": "2024-10-01",
+   "oos_end": "2024-12-02",
+   "iloc_start": 945,
+   "iloc_end": 1008,
+   "params": {
+    "osc_lower": -1.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2024-12-03",
+   "oos_end": "2025-02-03",
+   "iloc_start": 1008,
+   "iloc_end": 1071,
+   "params": {
+    "osc_lower": -1.0,
+    "osc_upper": 2.0,
+    "zscore_entry": -2.5,
+    "zscore_exit": 2.5,
+    "mom_threshold": 0.5
+   }
+  },
+  {
+   "oos_start": "2025-02-04",
+   "oos_end": "2025-04-07",
+   "iloc_start": 1071,
+   "iloc_end": 1134,
+   "params": {
+    "osc_lower": -1.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-04-08",
+   "oos_end": "2025-06-09",
+   "iloc_start": 1134,
+   "iloc_end": 1197,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 1.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 2.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-06-10",
+   "oos_end": "2025-08-11",
+   "iloc_start": 1197,
+   "iloc_end": 1260,
+   "params": {
+    "osc_lower": -1.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 2.0,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-08-12",
+   "oos_end": "2025-10-13",
+   "iloc_start": 1260,
+   "iloc_end": 1323,
+   "params": {
+    "osc_lower": -1.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 2.0,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-10-14",
+   "oos_end": "2025-12-15",
+   "iloc_start": 1323,
+   "iloc_end": 1386,
+   "params": {
+    "osc_lower": -1.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 2.0,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-12-16",
+   "oos_end": "2026-02-16",
+   "iloc_start": 1386,
+   "iloc_end": 1449,
+   "params": {
+    "osc_lower": -0.5,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2026-02-17",
+   "oos_end": "2026-04-20",
+   "iloc_start": 1449,
+   "iloc_end": 1512,
+   "params": {
+    "osc_lower": -1.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 2.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2026-04-21",
+   "oos_end": "2026-06-22",
+   "iloc_start": 1512,
+   "iloc_end": 1575,
+   "params": {
+    "osc_lower": -1.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 2.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2026-06-23",
+   "oos_end": "2026-08-24",
+   "iloc_start": 1575,
+   "iloc_end": 1638,
+   "params": {
+    "osc_lower": -1.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 2.5,
+    "mom_threshold": -0.5
+   }
+  }
+ ],
+ "LINK-USD|standard": [
+  {
+   "oos_start": "2022-11-08",
+   "oos_end": "2023-01-09",
+   "iloc_start": 252,
+   "iloc_end": 315,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2023-01-10",
+   "oos_end": "2023-03-13",
+   "iloc_start": 315,
+   "iloc_end": 378,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2023-03-14",
+   "oos_end": "2023-05-15",
+   "iloc_start": 378,
+   "iloc_end": 441,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2023-05-16",
+   "oos_end": "2023-07-17",
+   "iloc_start": 441,
+   "iloc_end": 504,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2023-07-18",
+   "oos_end": "2023-09-18",
+   "iloc_start": 504,
+   "iloc_end": 567,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": 0.5
+   }
+  },
+  {
+   "oos_start": "2023-09-19",
+   "oos_end": "2023-11-20",
+   "iloc_start": 567,
+   "iloc_end": 630,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2023-11-21",
+   "oos_end": "2024-01-22",
+   "iloc_start": 630,
+   "iloc_end": 693,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2024-01-23",
+   "oos_end": "2024-03-25",
+   "iloc_start": 693,
+   "iloc_end": 756,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2024-03-26",
+   "oos_end": "2024-05-27",
+   "iloc_start": 756,
+   "iloc_end": 819,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2024-05-28",
+   "oos_end": "2024-07-29",
+   "iloc_start": 819,
+   "iloc_end": 882,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2024-07-30",
+   "oos_end": "2024-09-30",
+   "iloc_start": 882,
+   "iloc_end": 945,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2024-10-01",
+   "oos_end": "2024-12-02",
+   "iloc_start": 945,
+   "iloc_end": 1008,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2024-12-03",
+   "oos_end": "2025-02-03",
+   "iloc_start": 1008,
+   "iloc_end": 1071,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": 0.0
+   }
+  },
+  {
+   "oos_start": "2025-02-04",
+   "oos_end": "2025-04-07",
+   "iloc_start": 1071,
+   "iloc_end": 1134,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": 0.5
+   }
+  },
+  {
+   "oos_start": "2025-04-08",
+   "oos_end": "2025-06-09",
+   "iloc_start": 1134,
+   "iloc_end": 1197,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-06-10",
+   "oos_end": "2025-08-11",
+   "iloc_start": 1197,
+   "iloc_end": 1260,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-08-12",
+   "oos_end": "2025-10-13",
+   "iloc_start": 1260,
+   "iloc_end": 1323,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-10-14",
+   "oos_end": "2025-12-15",
+   "iloc_start": 1323,
+   "iloc_end": 1386,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-12-16",
+   "oos_end": "2026-02-16",
+   "iloc_start": 1386,
+   "iloc_end": 1449,
+   "params": {
+    "osc_lower": -1.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -1.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2026-02-17",
+   "oos_end": "2026-04-20",
+   "iloc_start": 1449,
+   "iloc_end": 1512,
+   "params": {
+    "osc_lower": -1.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -1.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2026-04-21",
+   "oos_end": "2026-06-22",
+   "iloc_start": 1512,
+   "iloc_end": 1575,
+   "params": {
+    "osc_lower": -1.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -1.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2026-06-23",
+   "oos_end": "2026-08-24",
+   "iloc_start": 1575,
+   "iloc_end": 1638,
+   "params": {
+    "osc_lower": -1.0,
+    "osc_upper": 1.0,
+    "zscore_entry": -1.5,
+    "zscore_exit": 2.5,
+    "mom_threshold": -0.5
+   }
+  }
+ ],
+ "LINK-USD|aggressive": [
+  {
+   "oos_start": "2022-11-08",
+   "oos_end": "2023-01-09",
+   "iloc_start": 252,
+   "iloc_end": 315,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2023-01-10",
+   "oos_end": "2023-03-13",
+   "iloc_start": 315,
+   "iloc_end": 378,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2023-03-14",
+   "oos_end": "2023-05-15",
+   "iloc_start": 378,
+   "iloc_end": 441,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2023-05-16",
+   "oos_end": "2023-07-17",
+   "iloc_start": 441,
+   "iloc_end": 504,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": 0.5
+   }
+  },
+  {
+   "oos_start": "2023-07-18",
+   "oos_end": "2023-09-18",
+   "iloc_start": 504,
+   "iloc_end": 567,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": 0.5
+   }
+  },
+  {
+   "oos_start": "2023-09-19",
+   "oos_end": "2023-11-20",
+   "iloc_start": 567,
+   "iloc_end": 630,
+   "params": {
+    "osc_lower": -0.5,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 2.0,
+    "mom_threshold": 0.5
+   }
+  },
+  {
+   "oos_start": "2023-11-21",
+   "oos_end": "2024-01-22",
+   "iloc_start": 630,
+   "iloc_end": 693,
+   "params": {
+    "osc_lower": -0.5,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 2.0,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2024-01-23",
+   "oos_end": "2024-03-25",
+   "iloc_start": 693,
+   "iloc_end": 756,
+   "params": {
+    "osc_lower": -0.5,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 2.0,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2024-03-26",
+   "oos_end": "2024-05-27",
+   "iloc_start": 756,
+   "iloc_end": 819,
+   "params": {
+    "osc_lower": -0.5,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 2.0,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2024-05-28",
+   "oos_end": "2024-07-29",
+   "iloc_start": 819,
+   "iloc_end": 882,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2024-07-30",
+   "oos_end": "2024-09-30",
+   "iloc_start": 882,
+   "iloc_end": 945,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2024-10-01",
+   "oos_end": "2024-12-02",
+   "iloc_start": 945,
+   "iloc_end": 1008,
+   "params": {
+    "osc_lower": -1.5,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 2.0,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2024-12-03",
+   "oos_end": "2025-02-03",
+   "iloc_start": 1008,
+   "iloc_end": 1071,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 2.0,
+    "mom_threshold": 0.0
+   }
+  },
+  {
+   "oos_start": "2025-02-04",
+   "oos_end": "2025-04-07",
+   "iloc_start": 1071,
+   "iloc_end": 1134,
+   "params": {
+    "osc_lower": -1.5,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 2.0,
+    "mom_threshold": 0.5
+   }
+  },
+  {
+   "oos_start": "2025-04-08",
+   "oos_end": "2025-06-09",
+   "iloc_start": 1134,
+   "iloc_end": 1197,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 2.0,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-06-10",
+   "oos_end": "2025-08-11",
+   "iloc_start": 1197,
+   "iloc_end": 1260,
+   "params": {
+    "osc_lower": -1.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-08-12",
+   "oos_end": "2025-10-13",
+   "iloc_start": 1260,
+   "iloc_end": 1323,
+   "params": {
+    "osc_lower": -1.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-10-14",
+   "oos_end": "2025-12-15",
+   "iloc_start": 1323,
+   "iloc_end": 1386,
+   "params": {
+    "osc_lower": -1.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-12-16",
+   "oos_end": "2026-02-16",
+   "iloc_start": 1386,
+   "iloc_end": 1449,
+   "params": {
+    "osc_lower": -1.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2026-02-17",
+   "oos_end": "2026-04-20",
+   "iloc_start": 1449,
+   "iloc_end": 1512,
+   "params": {
+    "osc_lower": -1.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2026-04-21",
+   "oos_end": "2026-06-22",
+   "iloc_start": 1512,
+   "iloc_end": 1575,
+   "params": {
+    "osc_lower": -1.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 2.0,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2026-06-23",
+   "oos_end": "2026-08-24",
+   "iloc_start": 1575,
+   "iloc_end": 1638,
+   "params": {
+    "osc_lower": -1.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 2.0,
+    "mom_threshold": -0.5
+   }
+  }
+ ],
+ "SUI20947-USD|standard": [
+  {
+   "oos_start": "2024-01-10",
+   "oos_end": "2024-03-12",
+   "iloc_start": 252,
+   "iloc_end": 315,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2024-03-13",
+   "oos_end": "2024-05-14",
+   "iloc_start": 315,
+   "iloc_end": 378,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2024-05-15",
+   "oos_end": "2024-07-16",
+   "iloc_start": 378,
+   "iloc_end": 441,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2024-07-17",
+   "oos_end": "2024-09-17",
+   "iloc_start": 441,
+   "iloc_end": 504,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2024-09-18",
+   "oos_end": "2024-11-19",
+   "iloc_start": 504,
+   "iloc_end": 567,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2024-11-20",
+   "oos_end": "2025-01-21",
+   "iloc_start": 567,
+   "iloc_end": 630,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-01-22",
+   "oos_end": "2025-03-25",
+   "iloc_start": 630,
+   "iloc_end": 693,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-03-26",
+   "oos_end": "2025-05-27",
+   "iloc_start": 693,
+   "iloc_end": 756,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-05-28",
+   "oos_end": "2025-07-29",
+   "iloc_start": 756,
+   "iloc_end": 819,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-07-30",
+   "oos_end": "2025-09-30",
+   "iloc_start": 819,
+   "iloc_end": 882,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-10-01",
+   "oos_end": "2025-12-02",
+   "iloc_start": 882,
+   "iloc_end": 945,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-12-03",
+   "oos_end": "2026-02-03",
+   "iloc_start": 945,
+   "iloc_end": 1008,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2026-02-04",
+   "oos_end": "2026-04-07",
+   "iloc_start": 1008,
+   "iloc_end": 1071,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2026-04-08",
+   "oos_end": "2026-06-09",
+   "iloc_start": 1071,
+   "iloc_end": 1134,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": 0.5
+   }
+  },
+  {
+   "oos_start": "2026-06-10",
+   "oos_end": "2026-08-11",
+   "iloc_start": 1134,
+   "iloc_end": 1197,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": 0.5
+   }
+  },
+  {
+   "oos_start": "2026-08-12",
+   "oos_end": "2026-10-13",
+   "iloc_start": 1197,
+   "iloc_end": 1260,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": 0.5
+   }
+  }
+ ],
+ "SUI20947-USD|aggressive": [
+  {
+   "oos_start": "2024-01-10",
+   "oos_end": "2024-03-12",
+   "iloc_start": 252,
+   "iloc_end": 315,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2024-03-13",
+   "oos_end": "2024-05-14",
+   "iloc_start": 315,
+   "iloc_end": 378,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2024-05-15",
+   "oos_end": "2024-07-16",
+   "iloc_start": 378,
+   "iloc_end": 441,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2024-07-17",
+   "oos_end": "2024-09-17",
+   "iloc_start": 441,
+   "iloc_end": 504,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2024-09-18",
+   "oos_end": "2024-11-19",
+   "iloc_start": 504,
+   "iloc_end": 567,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2024-11-20",
+   "oos_end": "2025-01-21",
+   "iloc_start": 567,
+   "iloc_end": 630,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-01-22",
+   "oos_end": "2025-03-25",
+   "iloc_start": 630,
+   "iloc_end": 693,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-03-26",
+   "oos_end": "2025-05-27",
+   "iloc_start": 693,
+   "iloc_end": 756,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-05-28",
+   "oos_end": "2025-07-29",
+   "iloc_start": 756,
+   "iloc_end": 819,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-07-30",
+   "oos_end": "2025-09-30",
+   "iloc_start": 819,
+   "iloc_end": 882,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-10-01",
+   "oos_end": "2025-12-02",
+   "iloc_start": 882,
+   "iloc_end": 945,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-12-03",
+   "oos_end": "2026-02-03",
+   "iloc_start": 945,
+   "iloc_end": 1008,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2026-02-04",
+   "oos_end": "2026-04-07",
+   "iloc_start": 1008,
+   "iloc_end": 1071,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2026-04-08",
+   "oos_end": "2026-06-09",
+   "iloc_start": 1071,
+   "iloc_end": 1134,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": 0.5
+   }
+  },
+  {
+   "oos_start": "2026-06-10",
+   "oos_end": "2026-08-11",
+   "iloc_start": 1134,
+   "iloc_end": 1197,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": 0.5
+   }
+  },
+  {
+   "oos_start": "2026-08-12",
+   "oos_end": "2026-10-13",
+   "iloc_start": 1197,
+   "iloc_end": 1260,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": 0.5
+   }
+  }
+ ],
+ "XRP-USD|standard": [
+  {
+   "oos_start": "2022-11-08",
+   "oos_end": "2023-01-09",
+   "iloc_start": 252,
+   "iloc_end": 315,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2023-01-10",
+   "oos_end": "2023-03-13",
+   "iloc_start": 315,
+   "iloc_end": 378,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2023-03-14",
+   "oos_end": "2023-05-15",
+   "iloc_start": 378,
+   "iloc_end": 441,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2023-05-16",
+   "oos_end": "2023-07-17",
+   "iloc_start": 441,
+   "iloc_end": 504,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2023-07-18",
+   "oos_end": "2023-09-18",
+   "iloc_start": 504,
+   "iloc_end": 567,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2023-09-19",
+   "oos_end": "2023-11-20",
+   "iloc_start": 567,
+   "iloc_end": 630,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2023-11-21",
+   "oos_end": "2024-01-22",
+   "iloc_start": 630,
+   "iloc_end": 693,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2024-01-23",
+   "oos_end": "2024-03-25",
+   "iloc_start": 693,
+   "iloc_end": 756,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2024-03-26",
+   "oos_end": "2024-05-27",
+   "iloc_start": 756,
+   "iloc_end": 819,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2024-05-28",
+   "oos_end": "2024-07-29",
+   "iloc_start": 819,
+   "iloc_end": 882,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2024-07-30",
+   "oos_end": "2024-09-30",
+   "iloc_start": 882,
+   "iloc_end": 945,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2024-10-01",
+   "oos_end": "2024-12-02",
+   "iloc_start": 945,
+   "iloc_end": 1008,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2024-12-03",
+   "oos_end": "2025-02-03",
+   "iloc_start": 1008,
+   "iloc_end": 1071,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-02-04",
+   "oos_end": "2025-04-07",
+   "iloc_start": 1071,
+   "iloc_end": 1134,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 1.0,
+    "zscore_entry": -2.5,
+    "zscore_exit": 2.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-04-08",
+   "oos_end": "2025-06-09",
+   "iloc_start": 1134,
+   "iloc_end": 1197,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 1.0,
+    "zscore_entry": -2.5,
+    "zscore_exit": 2.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-06-10",
+   "oos_end": "2025-08-11",
+   "iloc_start": 1197,
+   "iloc_end": 1260,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 1.0,
+    "zscore_entry": -2.5,
+    "zscore_exit": 2.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-08-12",
+   "oos_end": "2025-10-13",
+   "iloc_start": 1260,
+   "iloc_end": 1323,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-10-14",
+   "oos_end": "2025-12-15",
+   "iloc_start": 1323,
+   "iloc_end": 1386,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-12-16",
+   "oos_end": "2026-02-16",
+   "iloc_start": 1386,
+   "iloc_end": 1449,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2026-02-17",
+   "oos_end": "2026-04-20",
+   "iloc_start": 1449,
+   "iloc_end": 1512,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2026-04-21",
+   "oos_end": "2026-06-22",
+   "iloc_start": 1512,
+   "iloc_end": 1575,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2026-06-23",
+   "oos_end": "2026-08-24",
+   "iloc_start": 1575,
+   "iloc_end": 1638,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  }
+ ],
+ "XRP-USD|aggressive": [
+  {
+   "oos_start": "2022-11-08",
+   "oos_end": "2023-01-09",
+   "iloc_start": 252,
+   "iloc_end": 315,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2023-01-10",
+   "oos_end": "2023-03-13",
+   "iloc_start": 315,
+   "iloc_end": 378,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2023-03-14",
+   "oos_end": "2023-05-15",
+   "iloc_start": 378,
+   "iloc_end": 441,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2023-05-16",
+   "oos_end": "2023-07-17",
+   "iloc_start": 441,
+   "iloc_end": 504,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2023-07-18",
+   "oos_end": "2023-09-18",
+   "iloc_start": 504,
+   "iloc_end": 567,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2023-09-19",
+   "oos_end": "2023-11-20",
+   "iloc_start": 567,
+   "iloc_end": 630,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2023-11-21",
+   "oos_end": "2024-01-22",
+   "iloc_start": 630,
+   "iloc_end": 693,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2024-01-23",
+   "oos_end": "2024-03-25",
+   "iloc_start": 693,
+   "iloc_end": 756,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2024-03-26",
+   "oos_end": "2024-05-27",
+   "iloc_start": 756,
+   "iloc_end": 819,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2024-05-28",
+   "oos_end": "2024-07-29",
+   "iloc_start": 819,
+   "iloc_end": 882,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2024-07-30",
+   "oos_end": "2024-09-30",
+   "iloc_start": 882,
+   "iloc_end": 945,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2024-10-01",
+   "oos_end": "2024-12-02",
+   "iloc_start": 945,
+   "iloc_end": 1008,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2024-12-03",
+   "oos_end": "2025-02-03",
+   "iloc_start": 1008,
+   "iloc_end": 1071,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-02-04",
+   "oos_end": "2025-04-07",
+   "iloc_start": 1071,
+   "iloc_end": 1134,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 1.0,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-04-08",
+   "oos_end": "2025-06-09",
+   "iloc_start": 1134,
+   "iloc_end": 1197,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 1.0,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-06-10",
+   "oos_end": "2025-08-11",
+   "iloc_start": 1197,
+   "iloc_end": 1260,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 1.0,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-08-12",
+   "oos_end": "2025-10-13",
+   "iloc_start": 1260,
+   "iloc_end": 1323,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-10-14",
+   "oos_end": "2025-12-15",
+   "iloc_start": 1323,
+   "iloc_end": 1386,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2025-12-16",
+   "oos_end": "2026-02-16",
+   "iloc_start": 1386,
+   "iloc_end": 1449,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2026-02-17",
+   "oos_end": "2026-04-20",
+   "iloc_start": 1449,
+   "iloc_end": 1512,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2026-04-21",
+   "oos_end": "2026-06-22",
+   "iloc_start": 1512,
+   "iloc_end": 1575,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  },
+  {
+   "oos_start": "2026-06-23",
+   "oos_end": "2026-08-24",
+   "iloc_start": 1575,
+   "iloc_end": 1638,
+   "params": {
+    "osc_lower": -2.0,
+    "osc_upper": 0.5,
+    "zscore_entry": -2.5,
+    "zscore_exit": 1.5,
+    "mom_threshold": -0.5
+   }
+  }
+ ]
+}

@@ -242,25 +242,19 @@ def decide_trades(signals: dict, open_positions: dict, max_positions: int,
         is_long = current_pos["size"] > 0
         is_short = current_pos["size"] < 0
 
-        # Close conditions
-        should_close = False
-        reason = ""
-        if action_key == "sell_exit" and is_long:
-            should_close = True
-            reason = "SELL / EXIT signal"
-        elif action_key == "liquidate" and (is_long or is_short):
-            should_close = True
-            reason = "LIQUIDATE TO CASH signal"
-        elif action_key == "cover_short" and is_short:
-            should_close = True
-            reason = "COVER SHORT signal"
-        # If signal flipped direction, close existing
-        elif action_key == "buy" and is_short:
-            should_close = True
-            reason = "Signal flipped long while short"
-        elif action_key == "enter_short" and is_long:
-            should_close = True
-            reason = "Signal flipped short while long"
+        # State-based exit: close whenever the strategy no longer holds this
+        # side, not only on the one-day transition actions. A skipped run
+        # used to turn sell_exit into "flat", which closed nothing and left
+        # the position to the exchange stop. See docs/FORK_CHANGES.md §8.
+        held = 1 if is_long else -1
+        should_close = info["signal"] != held
+        reason = {
+            "sell_exit": "SELL / EXIT signal",
+            "liquidate": "LIQUIDATE TO CASH signal",
+            "cover_short": "COVER SHORT signal",
+            "buy": "Signal flipped long while short",
+            "enter_short": "Signal flipped short while long",
+        }.get(action_key, f"Strategy {action_key} (exit missed between runs)")
 
         if should_close:
             trades.append({
